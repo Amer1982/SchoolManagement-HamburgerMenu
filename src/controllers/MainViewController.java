@@ -62,8 +62,8 @@ public class MainViewController implements Initializable {
             transition.setRate(transition.getRate() * -1);
             transition.play();
 
-            if (drawer.isDrawn()){//isOpened()) {
-                drawer.hide();//close();
+            if (drawer.isOpened()) {
+                drawer.close();
                 //Nisam mogao kliknuti nista ispod overlay za drawer kada je zatvoren pa sam dodao ovaj dio koda koji ga 
                 //šalje iza AncorPane
                 AnchorPane.clearConstraints(drawer);
@@ -71,7 +71,7 @@ public class MainViewController implements Initializable {
                 AnchorPane.setTopAnchor(drawer, 0.0);
                 AnchorPane.setBottomAnchor(drawer, 0.0);
             } else {
-                drawer.draw();//open();
+                drawer.open();
                 AnchorPane.setRightAnchor(drawer, 0.0);
                 AnchorPane.setLeftAnchor(drawer, 0.0);
                 AnchorPane.setTopAnchor(drawer, 60.0);

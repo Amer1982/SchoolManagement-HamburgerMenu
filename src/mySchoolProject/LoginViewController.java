@@ -57,7 +57,7 @@ public class LoginViewController implements Initializable {
 
             //za admina
         } else if (usernameTextField.getText().equals("Amer") && passwordTextField.getText().equals("admin")) {
-            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("views/mainView"));//"home/admin/adminFxml/Home.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("views/mainView.fxml"));//"home/admin/adminFxml/Home.fxml"));
             newStage(loader);
 
         } else {
