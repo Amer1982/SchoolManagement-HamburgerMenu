@@ -13,7 +13,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 import utils.Constants;
 
 
@@ -35,6 +38,7 @@ public class SideMenuViewController implements Initializable {
     private JFXButton btnClasses;
     @FXML
     private JFXButton btnFinances;
+    
 
     
     @Override
@@ -81,6 +85,21 @@ public class SideMenuViewController implements Initializable {
 
     @FXML
     private void onLogout(ActionEvent event) {
+        try {
+            //loginScene nestaje
+            btnLogut.getScene().getWindow().hide();
+            //Ponovo se poziva Login Scene
+            Parent root = FXMLLoader.load(getClass().getResource(Constants.LOGINVIEW));
+            
+            Stage primaryStage = new Stage();
+            primaryStage.setTitle("School Management");
+            primaryStage.setScene(new Scene(root));
+            //primaryStage.getIcons().add(new Image("@../images/logo.png"));
+
+            primaryStage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(SideMenuViewController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML

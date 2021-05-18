@@ -59,6 +59,7 @@ public class LoginViewController implements Initializable {
         } else if (usernameTextField.getText().equals("Amer") && passwordTextField.getText().equals("admin")) {
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("views/mainView.fxml"));//"home/admin/adminFxml/Home.fxml"));
             newStage(loader);
+            
 
         } else {
             loginMessageLabel.setText("Invalid username and/or password! Please try again");
@@ -80,15 +81,17 @@ public class LoginViewController implements Initializable {
        /* Controller controller = loader.getController();
         controller.showInformation(usernameTextField.getText() + " " + passwordTextField.getText());*/
 
-        //otvara novi scene na istom stageu
-        login.getChildren().setAll((home));
+        //otvara novi scene na istom stageu(za hamburger app mi nije potrebno. Koristim hide())
+        //login.getChildren().setAll((home));
 
         Stage stage = new Stage();
-        //stage.setFullScreen(true);
         stage.setScene(new Scene(home));
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setTitle(Constants.MAIN_TITLE);
-        //stage.getIcons().add(new Image("@../../images/logo.png"));
+        //stage.getIcons().add(new Image("@../images/home.png"));
         stage.show();
+        
+        //loginScene nestaje
+        loginButton.getScene().getWindow().hide();
     }
 }
