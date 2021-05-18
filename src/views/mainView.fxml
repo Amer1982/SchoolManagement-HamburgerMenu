@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane fx:id="mainStackPane" prefHeight="760.0" prefWidth="1240.0" stylesheets="@../css/fullpackstyling.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainViewController">
+   <children>
+      <AnchorPane id="AnchorPane" prefHeight="760.0" prefWidth="1240.0">
+         <children>
+            <JFXToolbar fx:id="toolbar" layoutX="227.0" layoutY="21.0" prefHeight="60.0" prefWidth="1240.0" styleClass="toolbar" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <left>
+                  <JFXHamburger fx:id="hamburger" alignment="CENTER" prefHeight="60.0" prefWidth="75.0" styleClass="jfx-hamburger-icon" BorderPane.alignment="CENTER" />
+               </left>
+            </JFXToolbar>
+            <AnchorPane fx:id="contentPane" layoutX="31.0" layoutY="105.0" prefHeight="700.0" prefWidth="1240.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0" />
+            <JFXDrawer fx:id="drawer" defaultDrawerSize="150.0" maxHeight="700.0" maxWidth="150.0" minHeight="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="60.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

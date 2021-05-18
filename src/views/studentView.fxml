@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane stylesheets="@../css/fullpackstyling.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.StudentViewController">
+   <children>
+      <AnchorPane id="AnchorPane" prefHeight="680.0" prefWidth="1220.0">
+         <children>
+            <AnchorPane layoutX="36.0" layoutY="32.0" prefHeight="650.0" prefWidth="1170.0" styleClass="card" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+               <children>
+                  <Pane layoutY="-3.0" prefHeight="80.0" prefWidth="1170.0" style="-fx-background-radius: 5 5 0 0;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <children>
+                        <JFXTabPane layoutY="45.0" prefHeight="610.0" prefWidth="1170.0" styleClass="jfx-tab-pane-headers-region">
+                           <tabs>
+                              <Tab text="Add new">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <GridPane layoutX="29.0" layoutY="37.0" prefHeight="399.0" prefWidth="530.0">
+                                             <columnConstraints>
+                                                <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" minWidth="10.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <children>
+                                                <HBox alignment="CENTER_LEFT" layoutX="270.0" layoutY="107.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="35.0" prefWidth="220.0" spacing="20.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                                   <children>
+                                                      <Text fx:id="rbtnGender" layoutX="270.0" layoutY="132.0" lineSpacing="5.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gender" textAlignment="JUSTIFY">
+                                                         <font>
+                                                            <Font size="15.0" />
+                                                         </font>
+                                                      </Text>
+                                                      <JFXRadioButton selected="true" text="Male">
+                                                         <font>
+                                                            <Font size="15.0" />
+                                                         </font>
+                                                         <toggleGroup>
+                                                            <ToggleGroup fx:id="Gender" />
+                                                         </toggleGroup>
+                                                      </JFXRadioButton>
+                                                      <JFXRadioButton text="Female" toggleGroup="$Gender">
+                                                         <font>
+                                                            <Font size="15.0" />
+                                                         </font>
+                                                      </JFXRadioButton>
+                                                   </children>
+                                                </HBox>
+                                                <JFXTextField fx:id="txtFName" labelFloat="true" layoutX="29.0" layoutY="37.0" prefHeight="35.0" prefWidth="220.0" promptText="First name" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </JFXTextField>
+                                                <JFXButton fx:id="btnSave" alignment="BASELINE_CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutX="306.0" layoutY="275.0" prefWidth="95.0" styleClass="save-button" text="Save" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+                                                <JFXTextField fx:id="txtAddress" labelFloat="true" layoutX="29.0" layoutY="164.0" prefHeight="35.0" prefWidth="220.0" promptText="Address" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </JFXTextField>
+                                                <JFXTextField fx:id="txtFee" labelFloat="true" prefHeight="35.0" prefWidth="220.0" promptText="Fee" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </JFXTextField>
+                                                <DatePicker fx:id="dateDaE" prefHeight="35.0" prefWidth="220.0" promptText="Date of Entry" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                                                <JFXTextField fx:id="txtCountry" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="35.0" prefWidth="220.0" promptText="Country" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </JFXTextField>
+                                                <JFXTextField fx:id="txtCity" labelFloat="true" prefHeight="35.0" prefWidth="220.0" promptText="City" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </JFXTextField>
+                                                <JFXTextField fx:id="txtPhone" labelFloat="true" layoutX="29.0" layoutY="98.0" prefHeight="35.0" prefWidth="220.0" promptText="Phone number" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </JFXTextField>
+                                                <JFXTextField fx:id="txtLName" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="35.0" prefWidth="220.0" promptText="Last name" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </JFXTextField>
+                                                <DatePicker fx:id="dateDoB" layoutX="270.0" layoutY="174.0" prefHeight="35.0" prefWidth="220.0" promptText="Date of Birth" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                                                <JFXButton fx:id="btnUpdate" layoutX="135.0" layoutY="275.0" prefWidth="95.0" styleClass="update-button" text="Update" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+                                             </children>
+                                          </GridPane>
+                                          <TitledPane animated="false" layoutX="595.0" layoutY="36.0" prefHeight="510.0" prefWidth="561.0" text="Search student">
+                                            <content>
+                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                   <children>
+                                                      <JFXTextField fx:id="txtStudentID" labelFloat="true" layoutX="18.0" layoutY="18.0" prefHeight="25.0" prefWidth="137.0" promptText="Student ID" />
+                                                      <JFXButton fx:id="btnSearch" buttonType="RAISED" layoutX="439.0" layoutY="12.0" styleClass="btn_login" text="Search" />
+                                                      <Separator layoutX="11.0" layoutY="67.0" opacity="0.5" prefHeight="0.0" prefWidth="542.0" />
+                                                      <TableView layoutX="8.0" layoutY="76.0" prefHeight="395.0" prefWidth="543.0" />
+                                                      <JFXTextField fx:id="txtSearchLName" labelFloat="true" layoutX="183.0" layoutY="18.0" prefHeight="25.0" prefWidth="226.0" promptText="Last name" />
+                                                   </children>
+                                                </AnchorPane>
+                                            </content>
+                                          </TitledPane>
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </Tab>
+                              <Tab text="List">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TableView layoutX="8.0" layoutY="8.0" prefHeight="507.0" prefWidth="1163.0">
+                                            <columns>
+                                              <TableColumn prefWidth="75.0" text="ID" />
+                                              <TableColumn prefWidth="145.0" text="First name" />
+                                                <TableColumn prefWidth="252.0" text="Last name" />
+                                                <TableColumn prefWidth="178.0" text="Phone" />
+                                                <TableColumn prefWidth="79.0" text="Gender" />
+                                                <TableColumn prefWidth="283.0" text="Address" />
+                                                <TableColumn prefWidth="162.0" text="Date of Birth" />
+                                            </columns>
+                                          </TableView>
+                                          <JFXButton fx:id="btnDelete" layoutX="1051.0" layoutY="533.0" prefWidth="90.0" styleClass="save-button" text="Delete" />
+                                          <JFXButton fx:id="btnEdit" layoutX="940.0" layoutY="533.0" prefWidth="90.0" styleClass="update-button" text="Edit" />
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </Tab>
+                           </tabs>
+                        </JFXTabPane>
+                     </children>
+                     <styleClass>
+                        <String fx:value="linear_gradient_red" />
+                        <String fx:value="card" />
+                     </styleClass></Pane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

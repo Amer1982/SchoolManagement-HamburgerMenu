@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="150.0" styleClass="side-menu" stylesheets="@../css/fullpackstyling.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SideMenuViewController">
+   <children>
+      <Pane prefHeight="133.0" prefWidth="150.0">
+         <children>
+            <ImageView fitHeight="114.0" fitWidth="128.0" layoutX="18.0" layoutY="10.0" preserveRatio="true">
+               <image>
+                  <Image url="@../images/icons8_school_100px.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Separator opacity="0.5" prefWidth="200.0" />
+      <JFXButton fx:id="btnHome" alignment="BASELINE_LEFT" graphicTextGap="20.0" onAction="#openHome" prefHeight="55.0" prefWidth="150.0" styleClass="side-menu-buttons" text="Home">
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/home.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="btnStudents" alignment="BASELINE_LEFT" graphicTextGap="20.0" layoutX="10.0" layoutY="146.0" onAction="#openStudents" prefHeight="55.0" prefWidth="150.0" styleClass="side-menu-buttons" text="Students">
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/students.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="btnTeachers" alignment="BASELINE_LEFT" graphicTextGap="20.0" onAction="#openTeachers" prefHeight="55.0" prefWidth="150.0" styleClass="side-menu-buttons" text="Teachers">
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/teacher.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="btnTimetable" alignment="BASELINE_LEFT" graphicTextGap="20.0" layoutX="10.0" layoutY="146.0" onAction="#openTimetable" prefHeight="55.0" prefWidth="150.0" styleClass="side-menu-buttons" text="Timetable">
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/timetable.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="btnClasses" alignment="BASELINE_LEFT" graphicTextGap="20.0" onAction="#openClasses" prefHeight="55.0" prefWidth="150.0" styleClass="side-menu-buttons" text="Classes">
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/classes.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="btnFinances" alignment="BASELINE_LEFT" graphicTextGap="20.0" onAction="#openFinances" prefHeight="55.0" prefWidth="150.0" styleClass="side-menu-buttons" text="Finances">
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/finance.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <Separator opacity="0.5" prefWidth="200.0" />
+      <JFXButton fx:id="btnLogut" alignment="BASELINE_LEFT" graphicTextGap="20.0" onAction="#onLogout" prefHeight="55.0" prefWidth="150.0" styleClass="side-menu-buttons" text="Logout">
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/logout.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="btnExit" alignment="BASELINE_LEFT" graphicTextGap="20.0" onAction="#onExit" prefHeight="55.0" prefWidth="150.0" styleClass="side-menu-buttons" text="Exit">
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/exit.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+   </children>
+</VBox>
