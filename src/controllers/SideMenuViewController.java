@@ -97,6 +97,7 @@ public class SideMenuViewController implements Initializable {
             //primaryStage.getIcons().add(new Image("@../images/logo.png"));
 
             primaryStage.show();
+            
         } catch (IOException ex) {
             Logger.getLogger(SideMenuViewController.class.getName()).log(Level.SEVERE, null, ex);
         }
