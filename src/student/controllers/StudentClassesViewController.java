@@ -20,27 +20,22 @@ import javafx.scene.control.TableColumn;
  * @author bnc
  */
 public class StudentClassesViewController implements Initializable {
-
-    @FXML
-    private JFXTextField txtSubject;
-    @FXML
-    private JFXTextField txtAbbrevation;
-    @FXML
-    private JFXButton btnUpdate;
-    @FXML
-    private JFXButton btnSave;
-    @FXML
-    private JFXComboBox<?> cmbbAssignTeacher;
-    @FXML
-    private TableColumn<?, ?> tblAbbrevation;
     @FXML
     private TableColumn<?, ?> tblSubject;
     @FXML
-    private TableColumn<?, ?> tblAssignedTchr;
+    private TableColumn<?, ?> tblSubject1;
     @FXML
-    private JFXButton btnEdit;
+    private TableColumn<?, ?> tblSubject11;
     @FXML
-    private JFXButton btnDelete;
+    private TableColumn<?, ?> tblSubject111;
+    @FXML
+    private TableColumn<?, ?> tblSubject1111;
+    @FXML
+    private TableColumn<?, ?> tblSubject11111;
+    @FXML
+    private TableColumn<?, ?> tblSubject111111;
+    @FXML
+    private TableColumn<?, ?> tblSubject1111111;
 
     /**
      * Initializes the controller class.

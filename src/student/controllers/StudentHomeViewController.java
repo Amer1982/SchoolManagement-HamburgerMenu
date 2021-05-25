@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 
 /**
  * FXML Controller class
@@ -21,13 +22,11 @@ import javafx.scene.layout.AnchorPane;
 public class StudentHomeViewController implements Initializable {
 
     @FXML
-    private Label lblStudentNo;
-    @FXML
-    private Label lblTeacherNo;
-    @FXML
     private AnchorPane MessageHolder;
     @FXML
-    private PieChart pieChart;
+    private Pane pnDailyCalendar;
+    @FXML
+    private Pane pnWeeklyCalendar;
 
     /**
      * Initializes the controller class.

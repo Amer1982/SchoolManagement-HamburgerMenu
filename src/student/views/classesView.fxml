@@ -12,44 +12,20 @@
    <children>
       <AnchorPane id="AnchorPane" prefHeight="620.0" prefWidth="1220.0">
          <children>
-            <AnchorPane layoutX="44.0" layoutY="115.0" prefHeight="485.0" prefWidth="512.0" styleClass="card">
+            <AnchorPane layoutX="19.0" layoutY="19.0" prefHeight="581.0" prefWidth="1183.0" styleClass="card">
                <children>
-                  <AnchorPane layoutX="41.0" layoutY="-90.0" prefHeight="140.0" prefWidth="429.0" styleClass="blue-gradient">
-                     <children>
-                        <Text fill="#f5f3f3" layoutX="107.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add new subject">
-                           <font>
-                              <Font name="System Bold" size="30.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </AnchorPane>
-                  <JFXTextField fx:id="txtSubject" labelFloat="true" layoutX="47.0" layoutY="129.0" prefHeight="40.0" prefWidth="422.0" promptText="Enter new subject" AnchorPane.leftAnchor="47.0">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </JFXTextField>
-                  <JFXTextField fx:id="txtAbbrevation" labelFloat="true" layoutX="47.0" layoutY="197.0" prefHeight="40.0" prefWidth="422.0" promptText="Enter abbrevetion" AnchorPane.leftAnchor="47.0">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </JFXTextField>
-                  <JFXButton fx:id="btnUpdate" buttonType="RAISED" layoutX="140.0" layoutY="436.0" prefHeight="25.0" prefWidth="90.0" styleClass="update-button" text="Update" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="140.0" />
-                  <JFXButton fx:id="btnSave" buttonType="RAISED" layoutX="283.0" layoutY="436.0" prefHeight="25.0" prefWidth="90.0" styleClass="save-button" text="Save" AnchorPane.bottomAnchor="40.0" AnchorPane.rightAnchor="140.0" />
-                  <JFXComboBox fx:id="cmbbAssignTeacher" layoutX="47.0" layoutY="265.0" prefHeight="40.0" prefWidth="422.0" promptText="Assign teacher" />
-               </children>
-            </AnchorPane>
-            <AnchorPane layoutX="583.0" layoutY="115.0" prefHeight="485.0" prefWidth="598.0" styleClass="card">
-               <children>
-                  <TableView layoutX="14.0" layoutY="14.0" prefHeight="364.0" prefWidth="568.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+                  <TableView layoutX="14.0" layoutY="14.0" prefHeight="553.0" prefWidth="1153.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
                     <columns>
-                      <TableColumn fx:id="tblAbbrevation" prefWidth="99.0" text="Abbrevation" />
-                      <TableColumn fx:id="tblSubject" prefWidth="242.0" text="Subject" />
-                        <TableColumn fx:id="tblAssignedTchr" prefWidth="224.0" text="Assigned teacher" />
+                      <TableColumn fx:id="tblSubject" prefWidth="134.0" text="Subject" />
+                        <TableColumn fx:id="tblSubject1" prefWidth="134.0" text="Subject" />
+                        <TableColumn fx:id="tblSubject11" prefWidth="134.0" text="Subject" />
+                        <TableColumn fx:id="tblSubject111" prefWidth="134.0" text="Subject" />
+                        <TableColumn fx:id="tblSubject1111" prefWidth="134.0" text="Subject" />
+                        <TableColumn fx:id="tblSubject11111" prefWidth="134.0" text="Subject" />
+                        <TableColumn fx:id="tblSubject111111" prefWidth="134.0" text="Subject" />
+                        <TableColumn fx:id="tblSubject1111111" prefWidth="134.0" text="Subject" />
                     </columns>
                   </TableView>
-                  <Separator layoutX="15.0" layoutY="395.0" prefHeight="0.0" prefWidth="571.0" />
-                  <JFXButton fx:id="btnEdit" buttonType="RAISED" layoutX="187.0" layoutY="438.0" prefHeight="25.0" prefWidth="90.0" styleClass="save-button" text="Edit" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="150.0" />
-                  <JFXButton fx:id="btnDelete" buttonType="RAISED" layoutX="378.0" layoutY="438.0" prefHeight="25.0" prefWidth="90.0" styleClass="update-button" text="Delete" AnchorPane.bottomAnchor="40.0" AnchorPane.rightAnchor="150.0" />
                </children>
             </AnchorPane>
          </children>
