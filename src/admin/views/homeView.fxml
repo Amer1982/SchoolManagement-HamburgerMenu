@@ -9,31 +9,30 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<StackPane prefHeight="680.0" prefWidth="1220.0" stylesheets="@../css/fullpackstyling.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HomeViewController">
+<StackPane stylesheets="@../../css/fullpackstyling.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="admin.controllers.HomeViewController">
    <children>
-      <AnchorPane id="AnchorPane" prefHeight="680.0" prefWidth="1220.0">
+      <AnchorPane id="AnchorPane" prefHeight="620.0" prefWidth="1220.0">
          <children>
-            <HBox layoutX="15.0" layoutY="93.0" prefHeight="186.0" prefWidth="1210.0" spacing="12.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="65.0">
+            <HBox layoutX="15.0" layoutY="93.0" prefHeight="100.0" prefWidth="1210.0" spacing="12.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="65.0">
                <children>
-                  <AnchorPane layoutX="59.0" layoutY="98.0" prefHeight="186.0" prefWidth="293.0" styleClass="card">
+                  <AnchorPane layoutX="59.0" layoutY="98.0" prefHeight="117.0" prefWidth="291.0" styleClass="card">
                      <children>
                         <Label alignment="CENTER" layoutX="159.0" layoutY="14.0" prefHeight="28.0" prefWidth="119.0" text="Students" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="14.0">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER_RIGHT" layoutX="14.0" layoutY="48.0" prefHeight="50.0" prefWidth="251.0" style="-fx-font-size: 34; -fx-font-weight: bold;" text="21" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" />
-                        <Separator layoutX="21.0" layoutY="105.0" opacity="0.34" prefHeight="11.0" prefWidth="251.0" />
-                        <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="14.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
+                        <Label fx:id="lblStudentNo" alignment="CENTER_RIGHT" layoutX="14.0" layoutY="48.0" prefHeight="50.0" prefWidth="251.0" style="-fx-font-size: 34; -fx-font-weight: bold;" text="21" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" />
+                        <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="10.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../DentalSystem/src/images/chevron_up.png" />
+                              <Image url="@../../../../DentalSystem/src/images/chevron_up.png" />
                            </image>
                         </ImageView>
                         <AnchorPane layoutX="14.0" layoutY="-42.0" prefHeight="84.0" prefWidth="134.0" style="-fx-background-color: #68B0C5;" styleClass="card">
                            <children>
                               <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="37.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="12.0" AnchorPane.topAnchor="12.0">
                                  <image>
-                                    <Image url="@../images/students.png" />
+                                    <Image url="@../../images/students.png" />
                                  </image>
                               </ImageView>
                            </children>
@@ -47,18 +46,17 @@
                               <Font name="System Bold" size="18.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER_RIGHT" layoutX="14.0" layoutY="48.0" prefHeight="50.0" prefWidth="251.0" style="-fx-font-size: 34; -fx-font-weight: bold;" text="21" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" />
-                        <Separator layoutX="21.0" layoutY="105.0" opacity="0.34" prefHeight="11.0" prefWidth="251.0" />
-                        <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="14.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
+                        <Label fx:id="lblTeacherNo" alignment="CENTER_RIGHT" layoutX="14.0" layoutY="48.0" prefHeight="50.0" prefWidth="251.0" style="-fx-font-size: 34; -fx-font-weight: bold;" text="4" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" />
+                        <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="13.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../DentalSystem/src/images/chevron_down.png" />
+                              <Image url="@../../../../DentalSystem/src/images/chevron_down.png" />
                            </image>
                         </ImageView>
                         <AnchorPane layoutX="14.0" layoutY="-42.0" prefHeight="84.0" prefWidth="134.0" style="-fx-background-color: #68B0C5;" styleClass="card">
                            <children>
                               <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="37.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="12.0" AnchorPane.topAnchor="12.0">
                                  <image>
-                                    <Image url="@../images/teacher.png" />
+                                    <Image url="@../../images/teacher.png" />
                                  </image>
                               </ImageView>
                            </children>
@@ -73,17 +71,16 @@
                            </font>
                         </Label>
                         <Label alignment="CENTER_RIGHT" layoutX="14.0" layoutY="48.0" prefHeight="50.0" prefWidth="251.0" style="-fx-font-size: 34; -fx-font-weight: bold;" text="21" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" />
-                        <Separator layoutX="21.0" layoutY="105.0" opacity="0.34" prefHeight="11.0" prefWidth="251.0" />
-                        <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="14.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="13.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../DentalSystem/src/images/chevron_down.png" />
+                              <Image url="@../../../../DentalSystem/src/images/chevron_down.png" />
                            </image>
                         </ImageView>
                         <AnchorPane layoutX="14.0" layoutY="-42.0" prefHeight="84.0" prefWidth="134.0" style="-fx-background-color: #68B0C5;" styleClass="card">
                            <children>
                               <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="37.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="12.0" AnchorPane.topAnchor="12.0">
                                  <image>
-                                    <Image url="@../images/dashboard.png" />
+                                    <Image url="@../../images/dashboard.png" />
                                  </image>
                               </ImageView>
                            </children>
@@ -98,17 +95,16 @@
                            </font>
                         </Label>
                         <Label alignment="CENTER_RIGHT" layoutX="14.0" layoutY="48.0" prefHeight="50.0" prefWidth="251.0" style="-fx-font-size: 34; -fx-font-weight: bold;" text="21" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" />
-                        <Separator layoutX="21.0" layoutY="105.0" opacity="0.34" prefHeight="11.0" prefWidth="251.0" />
-                        <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="14.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="13.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../DentalSystem/src/images/chevron_up.png" />
+                              <Image url="@../../../../DentalSystem/src/images/chevron_up.png" />
                            </image>
                         </ImageView>
                         <AnchorPane layoutX="14.0" layoutY="-42.0" prefHeight="84.0" prefWidth="134.0" style="-fx-background-color: #68B0C5;" styleClass="card">
                            <children>
                               <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="37.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="12.0" AnchorPane.topAnchor="12.0">
                                  <image>
-                                    <Image url="@../images/finance.png" />
+                                    <Image url="@../../images/finance.png" />
                                  </image>
                               </ImageView>
                            </children>

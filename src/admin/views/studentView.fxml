@@ -8,15 +8,15 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<StackPane stylesheets="@../css/fullpackstyling.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.StudentViewController">
+<StackPane stylesheets="@../../css/fullpackstyling.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="admin.controllers.StudentViewController">
    <children>
-      <AnchorPane id="AnchorPane" prefHeight="680.0" prefWidth="1220.0">
+      <AnchorPane id="AnchorPane" prefHeight="620.0" prefWidth="1220.0">
          <children>
             <AnchorPane layoutX="36.0" layoutY="32.0" prefHeight="650.0" prefWidth="1170.0" styleClass="card" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
                <children>
                   <Pane layoutY="-3.0" prefHeight="80.0" prefWidth="1170.0" style="-fx-background-radius: 5 5 0 0;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                      <children>
-                        <JFXTabPane layoutY="45.0" prefHeight="610.0" prefWidth="1170.0" styleClass="jfx-tab-pane-headers-region">
+                        <JFXTabPane layoutY="45.0" prefHeight="550.0" prefWidth="1170.0" styleClass="jfx-tab-pane-headers-region">
                            <tabs>
                               <Tab text="Add new">
                                 <content>
@@ -99,14 +99,14 @@
                                                 <JFXButton fx:id="btnUpdate" layoutX="135.0" layoutY="275.0" prefWidth="95.0" styleClass="update-button" text="Update" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
                                              </children>
                                           </GridPane>
-                                          <TitledPane animated="false" layoutX="595.0" layoutY="36.0" prefHeight="510.0" prefWidth="561.0" text="Search student">
+                                          <TitledPane animated="false" layoutX="595.0" layoutY="36.0" prefHeight="465.0" prefWidth="561.0" text="Search student">
                                             <content>
-                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="438.0" prefWidth="559.0">
                                                    <children>
                                                       <JFXTextField fx:id="txtStudentID" labelFloat="true" layoutX="18.0" layoutY="18.0" prefHeight="25.0" prefWidth="137.0" promptText="Student ID" />
                                                       <JFXButton fx:id="btnSearch" buttonType="RAISED" layoutX="439.0" layoutY="12.0" styleClass="btn_login" text="Search" />
                                                       <Separator layoutX="11.0" layoutY="67.0" opacity="0.5" prefHeight="0.0" prefWidth="542.0" />
-                                                      <TableView layoutX="8.0" layoutY="76.0" prefHeight="395.0" prefWidth="543.0" />
+                                                      <TableView layoutX="8.0" layoutY="76.0" prefHeight="351.0" prefWidth="543.0" />
                                                       <JFXTextField fx:id="txtSearchLName" labelFloat="true" layoutX="183.0" layoutY="18.0" prefHeight="25.0" prefWidth="226.0" promptText="Last name" />
                                                    </children>
                                                 </AnchorPane>
@@ -118,9 +118,9 @@
                               </Tab>
                               <Tab text="List">
                                 <content>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="1170.0">
                                        <children>
-                                          <TableView layoutX="8.0" layoutY="8.0" prefHeight="507.0" prefWidth="1163.0">
+                                          <TableView layoutY="8.0" prefHeight="455.0" prefWidth="1170.0">
                                             <columns>
                                               <TableColumn prefWidth="75.0" text="ID" />
                                               <TableColumn prefWidth="145.0" text="First name" />
@@ -131,8 +131,8 @@
                                                 <TableColumn prefWidth="162.0" text="Date of Birth" />
                                             </columns>
                                           </TableView>
-                                          <JFXButton fx:id="btnDelete" layoutX="1051.0" layoutY="533.0" prefWidth="90.0" styleClass="save-button" text="Delete" />
-                                          <JFXButton fx:id="btnEdit" layoutX="940.0" layoutY="533.0" prefWidth="90.0" styleClass="update-button" text="Edit" />
+                                          <JFXButton fx:id="btnDelete" layoutX="1055.0" layoutY="470.0" prefWidth="90.0" styleClass="save-button" text="Delete" />
+                                          <JFXButton fx:id="btnEdit" layoutX="930.0" layoutY="470.0" prefWidth="90.0" styleClass="update-button" text="Edit" />
                                        </children>
                                     </AnchorPane>
                                 </content>

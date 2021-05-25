@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controllers;
+package student.controllers;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
@@ -19,20 +19,16 @@ import javafx.scene.control.TableColumn;
  *
  * @author bnc
  */
-public class ClassesViewController implements Initializable {
+public class StudentClassesViewController implements Initializable {
 
-    @FXML
-    private JFXButton btnUpdate;
-    @FXML
-    private JFXButton btnSave;
-    @FXML
-    private JFXButton btnEdit;
-    @FXML
-    private JFXButton btnDelete;
     @FXML
     private JFXTextField txtSubject;
     @FXML
     private JFXTextField txtAbbrevation;
+    @FXML
+    private JFXButton btnUpdate;
+    @FXML
+    private JFXButton btnSave;
     @FXML
     private JFXComboBox<?> cmbbAssignTeacher;
     @FXML
@@ -41,6 +37,10 @@ public class ClassesViewController implements Initializable {
     private TableColumn<?, ?> tblSubject;
     @FXML
     private TableColumn<?, ?> tblAssignedTchr;
+    @FXML
+    private JFXButton btnEdit;
+    @FXML
+    private JFXButton btnDelete;
 
     /**
      * Initializes the controller class.

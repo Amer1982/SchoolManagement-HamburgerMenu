@@ -10,9 +10,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<StackPane stylesheets="@../css/fullpackstyling.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.TimetableViewController">
+<StackPane stylesheets="@../../css/fullpackstyling.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="student.controllers.StudentTimetableViewController">
    <children>
-      <AnchorPane id="AnchorPane" prefHeight="680.0" prefWidth="1220.0">
+      <AnchorPane id="AnchorPane" prefHeight="620.0" prefWidth="1220.0">
          <children>
             <AnchorPane layoutX="71.0" layoutY="75.0" prefHeight="650.0" prefWidth="1170.0" styleClass="card" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
                <children>

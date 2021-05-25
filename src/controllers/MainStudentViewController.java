@@ -20,7 +20,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import utils.Constants;
 
-public class MainViewController implements Initializable {
+public class MainStudentViewController implements Initializable {
 
     @FXML
     private StackPane mainStackPane;
@@ -49,11 +49,11 @@ public class MainViewController implements Initializable {
     private void initDrawer() {
 
         try {
-            VBox menu = FXMLLoader.load(getClass().getResource(Constants.SIDEMENUVIEW));
+            VBox menu = FXMLLoader.load(getClass().getResource(Constants.STUDENTSIDEMENUVIEW));
             drawer.setSidePane(menu);//set the node
 
         } catch (IOException ex) {
-            Logger.getLogger(MainViewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainStudentViewController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         //transition animation of the hamburger icon

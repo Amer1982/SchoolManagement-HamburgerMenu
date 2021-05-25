@@ -5,6 +5,9 @@
  */
 package mySchoolProject;
 
+import controllers.MainStudentViewController;
+import controllers.MainTeacherViewController;
+import controllers.MainViewController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -45,20 +48,35 @@ public class LoginViewController implements Initializable {
     public void loginActionButton(ActionEvent actionEvent) throws IOException {
         //for(app.model.User user : listLogin){
 
-        //Za studenta
+            //Za studenta
         if (usernameTextField.getText().equals("Amer") && passwordTextField.getText().equals("student")) {
-            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource(Constants.STUDENTVIEW));//"home/student/studentFxml/Home.fxml"));
-            newStage(loader);
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("views/mainStudentView.fxml"));//"home/student/studentFxml/Home.fxml"));
+                
+        newStage(loader);
+        
+        //za automatski popunjeno polje dataInfo
+        MainStudentViewController studentController = loader.getController();
+        studentController.showInformation(usernameTextField.getText() + " " + passwordTextField.getText());
 
-            //Za profesora
+             //Za profesora
         } else if (usernameTextField.getText().equals("Amer") && passwordTextField.getText().equals("profa")) {
-            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource(Constants.TEACHERSVIEW));//"home/professor/professorFxml/Home.fxml"));
-            newStage(loader);
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("views/mainTeacherView.fxml"));//"home/professor/professorFxml/Home.fxml"));
+      
+        newStage(loader);
+        
+        //za automatski popunjeno polje dataInfo
+            MainTeacherViewController teacherController = loader.getController();
+        teacherController.showInformation(usernameTextField.getText() + " " + passwordTextField.getText());
 
             //za admina
         } else if (usernameTextField.getText().equals("Amer") && passwordTextField.getText().equals("admin")) {
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("views/mainView.fxml"));//"home/admin/adminFxml/Home.fxml"));
-            newStage(loader);
+         
+        newStage(loader);
+        
+        //za automatski popunjeno polje dataInfo
+        MainViewController controller = loader.getController();
+        controller.showInformation(usernameTextField.getText() + " " + passwordTextField.getText());
             
 
         } else {
@@ -77,8 +95,8 @@ public class LoginViewController implements Initializable {
         Parent home = loader.load();
         //Parent parent = FxmlLoader.load(getClass().getClassLoader().getResource("home/professorFxml/Home.fxml"));
 
-        //za automatski popunjeno polje dataInfo
-       /* Controller controller = loader.getController();
+        /*//za automatski popunjeno polje dataInfo
+        MainViewController controller = loader.getController();
         controller.showInformation(usernameTextField.getText() + " " + passwordTextField.getText());*/
 
         //otvara novi scene na istom stageu(za hamburger app mi nije potrebno. Koristim hide())
@@ -88,7 +106,7 @@ public class LoginViewController implements Initializable {
         stage.setScene(new Scene(home));
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setTitle(Constants.MAIN_TITLE);
-        //stage.getIcons().add(new Image("@../images/home.png"));
+        stage.getIcons().add(new Image("/images/logo.png"));
         stage.show();
         
         //loginScene nestaje

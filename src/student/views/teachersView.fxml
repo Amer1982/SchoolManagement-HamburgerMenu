@@ -8,15 +8,15 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../css/fullpackstyling.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.TeachersViewController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../../css/fullpackstyling.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="student.controllers.StudentMessageViewController">
    <children>
-      <AnchorPane prefHeight="680.0" prefWidth="1220.0">
+      <AnchorPane prefHeight="620.0" prefWidth="1220.0">
          <children>
             <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="650.0" prefWidth="1170.0" styleClass="card" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
                <children>
                   <Pane prefHeight="80.0" prefWidth="1170.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                      <children>
-                        <JFXTabPane layoutY="45.0" prefHeight="610.0" prefWidth="1170.0">
+                        <JFXTabPane layoutY="45.0" prefHeight="550.0" prefWidth="1170.0">
                            <tabs>
                               <Tab text="Add new">
                                 <content>
@@ -61,7 +61,7 @@
                                              </font>
                                           </JFXTextField>
                                           <JFXTextArea fx:id="txtfAdditional" layoutX="14.0" layoutY="300.0" prefHeight="115.0" prefWidth="503.0" promptText="Additional information" />
-                                          <Separator layoutX="582.0" layoutY="24.0" opacity="0.5" orientation="VERTICAL" prefHeight="518.0" prefWidth="5.0" />
+                                          <Separator layoutX="577.0" layoutY="24.0" opacity="0.5" orientation="VERTICAL" prefHeight="456.0" prefWidth="11.0" />
                                           <Pane layoutX="694.0" layoutY="249.0" prefHeight="140.0" prefWidth="369.0" styleClass="card">
                                              <children>
                                                 <JFXRadioButton layoutX="71.0" layoutY="64.0" text="Yes">
@@ -102,7 +102,7 @@
                                 <content>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <TableView prefHeight="507.0" prefWidth="1170.0">
+                                          <TableView prefHeight="455.0" prefWidth="1170.0">
                                              <columns>
                                                 <TableColumn prefWidth="75.0" text="ID" />
                                                 <TableColumn prefWidth="145.0" text="First name" />
@@ -123,8 +123,8 @@
                                                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                                              </columnResizePolicy>
                                           </TableView>
-                                          <JFXButton fx:id="btnEdit" buttonType="RAISED" layoutX="940.0" layoutY="520.0" prefWidth="90.0" styleClass="update-button" text="Edit" />
-                                          <JFXButton fx:id="btnDelete" buttonType="RAISED" layoutX="1051.0" layoutY="520.0" prefWidth="90.0" styleClass="save-button" text="Delete" />
+                                          <JFXButton fx:id="btnEdit" buttonType="RAISED" layoutX="930.0" layoutY="470.0" prefWidth="90.0" styleClass="update-button" text="Edit" />
+                                          <JFXButton fx:id="btnDelete" buttonType="RAISED" layoutX="1055.0" layoutY="470.0" prefWidth="90.0" styleClass="save-button" text="Delete" />
                                        </children>
                                     </AnchorPane>
                                 </content>

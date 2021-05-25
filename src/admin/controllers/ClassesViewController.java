@@ -3,53 +3,44 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controllers;
+package admin.controllers;
 
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXTextArea;
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.TableColumn;
 
 /**
  * FXML Controller class
  *
  * @author bnc
  */
-public class TeachersViewController implements Initializable {
+public class ClassesViewController implements Initializable {
 
-    @FXML
-    private JFXButton btnSave;
     @FXML
     private JFXButton btnUpdate;
     @FXML
-    private DatePicker dateDoB;
-    @FXML
-    private JFXTextField txtAddress;
-    @FXML
-    private JFXTextField txtPhone;
-    @FXML
-    private JFXTextField txtLName;
-    @FXML
-    private JFXTextField txtFName;
-    @FXML
-    private JFXTextField txtCity;
-    @FXML
-    private JFXTextField txtEmail;
-    @FXML
-    private JFXTextField txtCountry;
-    @FXML
-    private JFXTextArea txtfAdditional;
-    @FXML
-    private ToggleGroup doctor;
+    private JFXButton btnSave;
     @FXML
     private JFXButton btnEdit;
     @FXML
     private JFXButton btnDelete;
+    @FXML
+    private JFXTextField txtSubject;
+    @FXML
+    private JFXTextField txtAbbrevation;
+    @FXML
+    private JFXComboBox<?> cmbbAssignTeacher;
+    @FXML
+    private TableColumn<?, ?> tblAbbrevation;
+    @FXML
+    private TableColumn<?, ?> tblSubject;
+    @FXML
+    private TableColumn<?, ?> tblAssignedTchr;
 
     /**
      * Initializes the controller class.

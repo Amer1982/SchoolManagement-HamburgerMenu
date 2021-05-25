@@ -25,7 +25,7 @@ public class Main extends Application {
         
         primaryStage.setTitle("School Management");
         primaryStage.setScene(new Scene(root));
-        //primaryStage.getIcons().add(new Image("@../images/logo.png"));
+        primaryStage.getIcons().add(new Image("/images/logo.png"));
 
         primaryStage.show();
     }

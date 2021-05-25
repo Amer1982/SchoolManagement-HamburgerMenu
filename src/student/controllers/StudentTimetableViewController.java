@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controllers;
+package student.controllers;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
@@ -18,7 +18,7 @@ import javafx.scene.control.DatePicker;
  *
  * @author bnc
  */
-public class TimetableViewController implements Initializable {
+public class StudentTimetableViewController implements Initializable {
 
     @FXML
     private JFXComboBox<?> cmbbSelectClass;

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane stylesheets="@../../css/fullpackstyling.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="student.controllers.StudentHomeViewController">
+   <children>
+      <AnchorPane id="AnchorPane" prefHeight="620.0" prefWidth="1220.0">
+         <children>
+            <HBox layoutX="15.0" layoutY="93.0" prefHeight="100.0" prefWidth="1210.0" spacing="12.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="65.0">
+               <children>
+                  <AnchorPane layoutX="59.0" layoutY="98.0" prefHeight="117.0" prefWidth="291.0" styleClass="card">
+                     <children>
+                        <Label alignment="CENTER" layoutX="159.0" layoutY="14.0" prefHeight="28.0" prefWidth="119.0" text="Students" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="14.0">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblStudentNo" alignment="CENTER_RIGHT" layoutX="14.0" layoutY="48.0" prefHeight="50.0" prefWidth="251.0" style="-fx-font-size: 34; -fx-font-weight: bold;" text="21" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" />
+                        <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="10.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../DentalSystem/src/images/chevron_up.png" />
+                           </image>
+                        </ImageView>
+                        <AnchorPane layoutX="14.0" layoutY="-42.0" prefHeight="84.0" prefWidth="134.0" style="-fx-background-color: #68B0C5;" styleClass="card">
+                           <children>
+                              <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="37.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="12.0" AnchorPane.topAnchor="12.0">
+                                 <image>
+                                    <Image url="@../../images/students.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="186.0" prefWidth="293.0" styleClass="card">
+                     <children>
+                        <Label alignment="CENTER" layoutX="159.0" layoutY="14.0" prefHeight="28.0" prefWidth="119.0" text="Teachers" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="14.0">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblTeacherNo" alignment="CENTER_RIGHT" layoutX="14.0" layoutY="48.0" prefHeight="50.0" prefWidth="251.0" style="-fx-font-size: 34; -fx-font-weight: bold;" text="4" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" />
+                        <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="13.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../DentalSystem/src/images/chevron_down.png" />
+                           </image>
+                        </ImageView>
+                        <AnchorPane layoutX="14.0" layoutY="-42.0" prefHeight="84.0" prefWidth="134.0" style="-fx-background-color: #68B0C5;" styleClass="card">
+                           <children>
+                              <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="37.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="12.0" AnchorPane.topAnchor="12.0">
+                                 <image>
+                                    <Image url="@../../images/teacher.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="186.0" prefWidth="293.0" styleClass="card">
+                     <children>
+                        <Label alignment="CENTER" layoutX="159.0" layoutY="14.0" prefHeight="28.0" prefWidth="119.0" text="Invoices" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="14.0">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" layoutX="14.0" layoutY="48.0" prefHeight="50.0" prefWidth="251.0" style="-fx-font-size: 34; -fx-font-weight: bold;" text="21" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" />
+                        <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="13.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../DentalSystem/src/images/chevron_down.png" />
+                           </image>
+                        </ImageView>
+                        <AnchorPane layoutX="14.0" layoutY="-42.0" prefHeight="84.0" prefWidth="134.0" style="-fx-background-color: #68B0C5;" styleClass="card">
+                           <children>
+                              <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="37.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="12.0" AnchorPane.topAnchor="12.0">
+                                 <image>
+                                    <Image url="@../../images/dashboard.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="186.0" prefWidth="293.0" styleClass="card">
+                     <children>
+                        <Label alignment="CENTER" layoutX="159.0" layoutY="14.0" prefHeight="28.0" prefWidth="119.0" text="Finances" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="14.0">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" layoutX="14.0" layoutY="48.0" prefHeight="50.0" prefWidth="251.0" style="-fx-font-size: 34; -fx-font-weight: bold;" text="21" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" />
+                        <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="13.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../DentalSystem/src/images/chevron_up.png" />
+                           </image>
+                        </ImageView>
+                        <AnchorPane layoutX="14.0" layoutY="-42.0" prefHeight="84.0" prefWidth="134.0" style="-fx-background-color: #68B0C5;" styleClass="card">
+                           <children>
+                              <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="37.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="12.0" AnchorPane.topAnchor="12.0">
+                                 <image>
+                                    <Image url="@../../images/finance.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </HBox>
+            <AnchorPane fx:id="MessageHolder" layoutX="38.0" layoutY="232.0" prefHeight="410.0" prefWidth="589.0" styleClass="card" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="15.0">
+               <children>
+                  <Label layoutX="256.0" layoutY="6.0" text="From Teachers" />
+                  <Label layoutX="12.0" layoutY="23.0" prefHeight="173.0" prefWidth="562.0" styleClass="patient-label" />
+                  <Label layoutX="14.0" layoutY="223.0" prefHeight="173.0" prefWidth="562.0" styleClass="patient-label" />
+                  <Label layoutX="254.0" layoutY="199.0" text="From Students" />
+               </children></AnchorPane>
+            <PieChart fx:id="pieChart" layoutX="613.0" layoutY="262.0" prefHeight="410.0" prefWidth="589.0" styleClass="card" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

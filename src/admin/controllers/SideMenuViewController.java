@@ -1,7 +1,8 @@
 
-package controllers;
+package admin.controllers;
 
 import com.jfoenix.controls.JFXButton;
+import controllers.MainViewController;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;

@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<StackPane fx:id="mainStackPane" stylesheets="@../css/fullpackstyling.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainViewController">
+<StackPane fx:id="mainStackPane" stylesheets="@../css/fullpackstyling.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainStudentViewController">
    <children>
       <AnchorPane id="AnchorPane" prefHeight="680.0" prefWidth="1240.0">
          <children>
