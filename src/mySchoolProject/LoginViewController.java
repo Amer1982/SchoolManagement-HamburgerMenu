@@ -46,11 +46,11 @@ public class LoginViewController implements Initializable {
 
     @FXML
     public void loginActionButton(ActionEvent actionEvent) throws IOException {
-        //for(app.model.User user : listLogin){
+        
 
             //Za studenta
         if (usernameTextField.getText().equals("Amer") && passwordTextField.getText().equals("student")) {
-            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("views/mainStudentView.fxml"));//"home/student/studentFxml/Home.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("views/mainStudentView.fxml"));
                 
         newStage(loader);
         
@@ -60,7 +60,7 @@ public class LoginViewController implements Initializable {
 
              //Za profesora
         } else if (usernameTextField.getText().equals("Amer") && passwordTextField.getText().equals("profa")) {
-            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("views/mainTeacherView.fxml"));//"home/professor/professorFxml/Home.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("views/mainTeacherView.fxml"));
       
         newStage(loader);
         
@@ -70,7 +70,7 @@ public class LoginViewController implements Initializable {
 
             //za admina
         } else if (usernameTextField.getText().equals("Amer") && passwordTextField.getText().equals("admin")) {
-            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("views/mainView.fxml"));//"home/admin/adminFxml/Home.fxml"));
+          FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("views/mainView.fxml"));
          
         newStage(loader);
         

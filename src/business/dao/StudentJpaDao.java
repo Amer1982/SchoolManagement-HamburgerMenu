@@ -17,12 +17,12 @@ import javax.persistence.Query;
  */
 public class StudentJpaDao implements JpaDao<Student>{
     
-    private EntityManager entityManager;
+     private final EntityManager entityManager = ENTITY_MANAGER_FACTORY.createEntityManager();
 
     @Override
-    public EntityManager getEntityManager() {
-    return entityManager;
-        }
+    public EntityManager entityManager() {
+        return entityManager;
+    }
 
     @Override
     public Student get(Integer id) {
@@ -38,19 +38,17 @@ public class StudentJpaDao implements JpaDao<Student>{
     }
 
     @Override
-    public void save(Student e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    public void save(Student student) {
+        executeInsideTransaction(em->em.persist(student));
+        }
 
     @Override
-    public void update(Student e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    public void update(Student student) {
+        executeInsideTransaction(em->em.merge(student));
+        }
 
     @Override
-    public void delete(Student e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    
+    public void delete(Student student) {
+        executeInsideTransaction(em->em.remove(student));
+    }   
 }

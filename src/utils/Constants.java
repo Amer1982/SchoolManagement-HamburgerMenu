@@ -22,4 +22,5 @@ public class Constants {
     public static final String STUDENTVIEW = "/admin/views/studentView.fxml";
     public static final String TIMETABLEVIEW = "/admin/views/timetableView.fxml";
     public static final String STUDENTSIDEMENUVIEW = "/student/views/sideMenuView.fxml";
+    public static String PU_NAME = "School Management System";
 }
