@@ -5,6 +5,11 @@
  */
 package mySchoolProject;
 
+
+import static business.dao.JpaDao.ENTITY_MANAGER_FACTORY;
+import business.dao.UserJpaDao;
+import business.entity.Privilege;
+import business.entity.User;
 import controllers.MainStudentViewController;
 import controllers.MainTeacherViewController;
 import controllers.MainViewController;
@@ -24,6 +29,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
+import utils.AccessPrivilege;
 import utils.Constants;
 
 public class LoginViewController implements Initializable {
@@ -42,24 +50,47 @@ public class LoginViewController implements Initializable {
     private Label loginMessageLabel;
     @FXML
     private AnchorPane login;
+    
+    EntityManager entityManager = ENTITY_MANAGER_FACTORY.createEntityManager();
 
 
     @FXML
     public void loginActionButton(ActionEvent actionEvent) throws IOException {
         
-
+    String username = usernameTextField.getText();
+    String password = passwordTextField.getText(); //treba hashirati password
+        if (username == null || username.isEmpty() || password == null || password.isEmpty()) {
+            loginMessageLabel.setText("Please enter your username and password");
+            Alert alert1 = new Alert(Alert.AlertType.ERROR);
+            alert1.setTitle("Error");
+            alert1.setHeaderText(null);
+            alert1.setContentText("Please enter your username and password");
+            alert1.showAndWait();
+            return;
+        }
+        
+        UserJpaDao userJpaDao = new UserJpaDao();
+        User user = userJpaDao.login(username, password);
+        System.out.println("logovani User je "+ user);
+      
+        Privilege userPrivilege = user.getIdPrivilege();
+        
             //Za studenta
-        if (usernameTextField.getText().equals("Amer") && passwordTextField.getText().equals("student")) {
+            if(AccessPrivilege.STUDENT.getId() == userPrivilege.getId()){
+        //if (username.equals("Amer") && password.equals("student")) {
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("views/mainStudentView.fxml"));
                 
         newStage(loader);
         
         //za automatski popunjeno polje dataInfo
         MainStudentViewController studentController = loader.getController();
-        studentController.showInformation(usernameTextField.getText() + " " + passwordTextField.getText());
+        Query query = entityManager.createNamedQuery("User.findByFirstName");
+        studentController.showInformation(query.getResultList().toString()); 
+                //usernameTextField.getText() + " " + passwordTextField.getText());
 
              //Za profesora
-        } else if (usernameTextField.getText().equals("Amer") && passwordTextField.getText().equals("profa")) {
+        } 
+            else if (AccessPrivilege.TEACHER.getId()==userPrivilege.getId()){
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("views/mainTeacherView.fxml"));
       
         newStage(loader);
@@ -69,14 +100,14 @@ public class LoginViewController implements Initializable {
         teacherController.showInformation(usernameTextField.getText() + " " + passwordTextField.getText());
 
             //za admina
-        } else if (usernameTextField.getText().equals("Amer") && passwordTextField.getText().equals("admin")) {
+        } else if(AccessPrivilege.ADMIN.getId()==userPrivilege.getId()){
           FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("views/mainView.fxml"));
          
         newStage(loader);
         
         //za automatski popunjeno polje dataInfo
         MainViewController controller = loader.getController();
-        controller.showInformation(usernameTextField.getText() + " " + passwordTextField.getText());
+        controller.showInformation(username+" "+password);
             
 
         } else {
@@ -95,8 +126,8 @@ public class LoginViewController implements Initializable {
         Parent home = loader.load();
         //Parent parent = FxmlLoader.load(getClass().getClassLoader().getResource("home/professorFxml/Home.fxml"));
 
-        /*//za automatski popunjeno polje dataInfo
-        MainViewController controller = loader.getController();
+        //za automatski popunjeno polje dataInfo
+        /*MainViewController controller = loader.getController();
         controller.showInformation(usernameTextField.getText() + " " + passwordTextField.getText());*/
 
         //otvara novi scene na istom stageu(za hamburger app mi nije potrebno. Koristim hide())

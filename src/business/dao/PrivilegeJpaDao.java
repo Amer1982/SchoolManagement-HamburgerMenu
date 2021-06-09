@@ -10,11 +10,6 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-
-/**
- *
- * @author bnc
- */
 public class PrivilegeJpaDao implements JpaDao<Privilege>{
 
     private final EntityManager entityManager = ENTITY_MANAGER_FACTORY.createEntityManager();

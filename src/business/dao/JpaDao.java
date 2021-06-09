@@ -15,10 +15,12 @@ import utils.Constants;
 /**
  *
  * @author bnc
+ * @param <E>
  */
 public interface JpaDao<E> extends Dao<E>{
     
-    EntityManagerFactory ENTITY_MANAGER_FACTORY = Persistence.createEntityManagerFactory(Constants.PU_NAME);
+    
+    EntityManagerFactory ENTITY_MANAGER_FACTORY = Persistence.createEntityManagerFactory(Constants.PU_NAME);//persistenceUnitName
 
     public EntityManager entityManager();
     

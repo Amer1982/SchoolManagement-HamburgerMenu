@@ -2,18 +2,20 @@
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
   <persistence-unit name="My_School_ProjectPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-    <class>business.entity.Teacher</class>
-    <class>business.entity.Street</class>
-    <class>business.entity.Student</class>
-    <class>business.entity.Admin</class>
     <class>business.entity.Finance</class>
     <class>business.entity.Country</class>
+    <class>business.entity.Admin</class>
     <class>business.entity.City</class>
+    <class>business.entity.Teacher</class>
+    <class>business.entity.User</class>
     <class>business.entity.Privilege</class>
+    <class>business.entity.Street</class>
+    <class>business.entity.Student</class>
+    <class>business.entity.Subject</class>
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/my_school_management_project"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/my_school_management_project?useSSL=false"/>
       <property name="javax.persistence.jdbc.user" value="root"/>
-      <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
       <property name="javax.persistence.jdbc.password" value="Password"/>
     </properties>
   </persistence-unit>

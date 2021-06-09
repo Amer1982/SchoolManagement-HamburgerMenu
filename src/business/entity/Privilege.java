@@ -44,11 +44,7 @@ public class Privilege implements Serializable {
     @Column(name = "name")
     private String name;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idPrivilege")
-    private List<Teacher> teacherList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idPrivilege")
-    private List<Student> studentList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idPrivilege")
-    private List<Admin> adminList;
+    private List<User> userList;
 
     public Privilege() {
     }
@@ -79,30 +75,12 @@ public class Privilege implements Serializable {
     }
 
     @XmlTransient
-    public List<Teacher> getTeacherList() {
-        return teacherList;
+    public List<User> getUserList() {
+        return userList;
     }
 
-    public void setTeacherList(List<Teacher> teacherList) {
-        this.teacherList = teacherList;
-    }
-
-    @XmlTransient
-    public List<Student> getStudentList() {
-        return studentList;
-    }
-
-    public void setStudentList(List<Student> studentList) {
-        this.studentList = studentList;
-    }
-
-    @XmlTransient
-    public List<Admin> getAdminList() {
-        return adminList;
-    }
-
-    public void setAdminList(List<Admin> adminList) {
-        this.adminList = adminList;
+    public void setUserList(List<User> userList) {
+        this.userList = userList;
     }
 
     @Override

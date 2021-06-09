@@ -28,7 +28,7 @@
                         <Font size="14.0" />
                      </font>
                   </JFXTextField>
-                  <JFXTextField fx:id="txtAbbrevation" labelFloat="true" layoutX="47.0" layoutY="197.0" prefHeight="40.0" prefWidth="422.0" promptText="Enter abbrevetion" AnchorPane.leftAnchor="47.0">
+                  <JFXTextField fx:id="txtAbbreviation" labelFloat="true" layoutX="47.0" layoutY="197.0" prefHeight="40.0" prefWidth="422.0" promptText="Enter abbreviation" AnchorPane.leftAnchor="47.0">
                      <font>
                         <Font size="14.0" />
                      </font>

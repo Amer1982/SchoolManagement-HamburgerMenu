@@ -47,6 +47,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
+      <JFXButton fx:id="btnAdmins" alignment="BASELINE_LEFT" graphicTextGap="20.0" layoutX="10.0" layoutY="256.0" onAction="#openAdmin" prefHeight="55.0" prefWidth="150.0" styleClass="side-menu-buttons" text="Admins" />
       <JFXButton fx:id="btnTimetable" alignment="BASELINE_LEFT" graphicTextGap="20.0" layoutX="10.0" layoutY="146.0" onAction="#openTimetable" prefHeight="55.0" prefWidth="150.0" styleClass="side-menu-buttons" text="Timetable">
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">

@@ -7,6 +7,7 @@ package business.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,6 +15,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -21,6 +24,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -32,12 +36,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Student.findAll", query = "SELECT s FROM Student s"),
     @NamedQuery(name = "Student.findById", query = "SELECT s FROM Student s WHERE s.id = :id"),
-    @NamedQuery(name = "Student.findByUsername", query = "SELECT s FROM Student s WHERE s.username = :username"),
-    @NamedQuery(name = "Student.findByPassword", query = "SELECT s FROM Student s WHERE s.password = :password"),
-    @NamedQuery(name = "Student.findByFirstName", query = "SELECT s FROM Student s WHERE s.firstName = :firstName"),
-    @NamedQuery(name = "Student.findByLastName", query = "SELECT s FROM Student s WHERE s.lastName = :lastName"),
     @NamedQuery(name = "Student.findByIndexNo", query = "SELECT s FROM Student s WHERE s.indexNo = :indexNo"),
     @NamedQuery(name = "Student.findByPhoneNumber", query = "SELECT s FROM Student s WHERE s.phoneNumber = :phoneNumber"),
+    @NamedQuery(name = "Student.findByEMail", query = "SELECT s FROM Student s WHERE s.eMail = :eMail"),
     @NamedQuery(name = "Student.findByGender", query = "SELECT s FROM Student s WHERE s.gender = :gender"),
     @NamedQuery(name = "Student.findByDateOfBirth", query = "SELECT s FROM Student s WHERE s.dateOfBirth = :dateOfBirth"),
     @NamedQuery(name = "Student.findByDateOfEntry", query = "SELECT s FROM Student s WHERE s.dateOfEntry = :dateOfEntry")})
@@ -49,36 +50,34 @@ public class Student implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
-    @Column(name = "username")
-    private String username;
-    @Column(name = "password")
-    private String password;
-    @Basic(optional = false)
-    @Column(name = "first_name")
-    private String firstName;
-    @Basic(optional = false)
-    @Column(name = "last_name")
-    private String lastName;
     @Basic(optional = false)
     @Column(name = "index_no")
     private String indexNo;
     @Basic(optional = false)
     @Column(name = "phone_number")
-    private int phoneNumber;
+    private String phoneNumber;
+    @Column(name = "e_mail")
+    private String eMail;
+    @Basic(optional = false)
     @Column(name = "gender")
     private String gender;
     @Column(name = "date_of_birth")
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date dateOfBirth;
     @Column(name = "date_of_entry")
     @Temporal(TemporalType.DATE)
     private Date dateOfEntry;
+    @JoinTable(name = "subject_student", joinColumns = {
+        @JoinColumn(name = "student_id", referencedColumnName = "id")}, inverseJoinColumns = {
+        @JoinColumn(name = "subject_id", referencedColumnName = "id")})
+    @ManyToMany
+    private List<Subject> subjectList;
     @JoinColumn(name = "id_finance", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Finance idFinance;
-    @JoinColumn(name = "id_privilege", referencedColumnName = "id")
+    @JoinColumn(name = "id_user", referencedColumnName = "id")
     @ManyToOne(optional = false)
-    private Privilege idPrivilege;
+    private User idUser;
     @JoinColumn(name = "id_street", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Street idStreet;
@@ -90,12 +89,11 @@ public class Student implements Serializable {
         this.id = id;
     }
 
-    public Student(Integer id, String firstName, String lastName, String indexNo, int phoneNumber) {
+    public Student(Integer id, String indexNo, String phoneNumber, String gender) {
         this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
         this.indexNo = indexNo;
         this.phoneNumber = phoneNumber;
+        this.gender = gender;
     }
 
     public Integer getId() {
@@ -106,38 +104,6 @@ public class Student implements Serializable {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
     public String getIndexNo() {
         return indexNo;
     }
@@ -146,12 +112,20 @@ public class Student implements Serializable {
         this.indexNo = indexNo;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public String getEMail() {
+        return eMail;
+    }
+
+    public void setEMail(String eMail) {
+        this.eMail = eMail;
     }
 
     public String getGender() {
@@ -178,6 +152,15 @@ public class Student implements Serializable {
         this.dateOfEntry = dateOfEntry;
     }
 
+    @XmlTransient
+    public List<Subject> getSubjectList() {
+        return subjectList;
+    }
+
+    public void setSubjectList(List<Subject> subjectList) {
+        this.subjectList = subjectList;
+    }
+
     public Finance getIdFinance() {
         return idFinance;
     }
@@ -186,12 +169,12 @@ public class Student implements Serializable {
         this.idFinance = idFinance;
     }
 
-    public Privilege getIdPrivilege() {
-        return idPrivilege;
+    public User getIdUser() {
+        return idUser;
     }
 
-    public void setIdPrivilege(Privilege idPrivilege) {
-        this.idPrivilege = idPrivilege;
+    public void setIdUser(User idUser) {
+        this.idUser = idUser;
     }
 
     public Street getIdStreet() {

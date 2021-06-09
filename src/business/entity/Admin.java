@@ -29,12 +29,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Admin.findAll", query = "SELECT a FROM Admin a"),
     @NamedQuery(name = "Admin.findById", query = "SELECT a FROM Admin a WHERE a.id = :id"),
-    @NamedQuery(name = "Admin.findByUsername", query = "SELECT a FROM Admin a WHERE a.username = :username"),
-    @NamedQuery(name = "Admin.findByPassword", query = "SELECT a FROM Admin a WHERE a.password = :password"),
-    @NamedQuery(name = "Admin.findByFirstName", query = "SELECT a FROM Admin a WHERE a.firstName = :firstName"),
-    @NamedQuery(name = "Admin.findByLastName", query = "SELECT a FROM Admin a WHERE a.lastName = :lastName"),
     @NamedQuery(name = "Admin.findByPhoneNumber", query = "SELECT a FROM Admin a WHERE a.phoneNumber = :phoneNumber"),
-    @NamedQuery(name = "Admin.findByEMail", query = "SELECT a FROM Admin a WHERE a.eMail = :eMail")})
+    @NamedQuery(name = "Admin.findByEMail", query = "SELECT a FROM Admin a WHERE a.eMail = :eMail"),
+    @NamedQuery(name = "Admin.findByIdStreet", query = "SELECT a FROM Admin a WHERE a.idStreet = :idStreet")})
 public class Admin implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -43,28 +40,19 @@ public class Admin implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
-    @Basic(optional = false)
-    @Column(name = "username")
-    private String username;
-    @Basic(optional = false)
-    @Column(name = "password")
-    private String password;
-    @Basic(optional = false)
-    @Column(name = "first_name")
-    private String firstName;
-    @Basic(optional = false)
-    @Column(name = "last_name")
-    private String lastName;
     @Column(name = "phone_number")
-    private Integer phoneNumber;
+    private String phoneNumber;
     @Column(name = "e_mail")
     private String eMail;
+    @Basic(optional = false)
+    @Column(name = "id_street")
+    private int idStreet;
     @JoinColumn(name = "id_finance", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Finance idFinance;
-    @JoinColumn(name = "id_privilege", referencedColumnName = "id")
+    @JoinColumn(name = "id_user", referencedColumnName = "id")
     @ManyToOne(optional = false)
-    private Privilege idPrivilege;
+    private User idUser;
 
     public Admin() {
     }
@@ -73,12 +61,9 @@ public class Admin implements Serializable {
         this.id = id;
     }
 
-    public Admin(Integer id, String username, String password, String firstName, String lastName) {
+    public Admin(Integer id, int idStreet) {
         this.id = id;
-        this.username = username;
-        this.password = password;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.idStreet = idStreet;
     }
 
     public Integer getId() {
@@ -89,43 +74,11 @@ public class Admin implements Serializable {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public Integer getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(Integer phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -137,6 +90,14 @@ public class Admin implements Serializable {
         this.eMail = eMail;
     }
 
+    public int getIdStreet() {
+        return idStreet;
+    }
+
+    public void setIdStreet(int idStreet) {
+        this.idStreet = idStreet;
+    }
+
     public Finance getIdFinance() {
         return idFinance;
     }
@@ -145,12 +106,12 @@ public class Admin implements Serializable {
         this.idFinance = idFinance;
     }
 
-    public Privilege getIdPrivilege() {
-        return idPrivilege;
+    public User getIdUser() {
+        return idUser;
     }
 
-    public void setIdPrivilege(Privilege idPrivilege) {
-        this.idPrivilege = idPrivilege;
+    public void setIdUser(User idUser) {
+        this.idUser = idUser;
     }
 
     @Override

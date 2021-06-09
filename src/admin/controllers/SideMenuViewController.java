@@ -1,6 +1,7 @@
 
 package admin.controllers;
 
+import admin.utils.adminConstants;
 import com.jfoenix.controls.JFXButton;
 import controllers.MainViewController;
 import java.io.IOException;
@@ -39,6 +40,8 @@ public class SideMenuViewController implements Initializable {
     private JFXButton btnClasses;
     @FXML
     private JFXButton btnFinances;
+    @FXML
+    private JFXButton btnAdmins;
     
 
     
@@ -46,7 +49,7 @@ public class SideMenuViewController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         //da se automatski pojavljuje i homepage
         try {
-            StackPane homePage = FXMLLoader.load(getClass().getResource(Constants.HOMEVIEW));
+            StackPane homePage = FXMLLoader.load(getClass().getResource(adminConstants.HOMEVIEW));
             MainViewController.tempAnchorPane.getChildren().setAll(homePage);
             
         } catch (IOException ex) {
@@ -56,32 +59,37 @@ public class SideMenuViewController implements Initializable {
 
     @FXML
     private void openHome(ActionEvent event) {
-        switchPane(Constants.HOMEVIEW);
+        switchPane(adminConstants.HOMEVIEW);
     }
     
     @FXML
     private void openStudents(ActionEvent event) {
-        switchPane(Constants.STUDENTVIEW);
+        switchPane(adminConstants.STUDENTVIEW);
     }
 
     @FXML
     private void openTeachers(ActionEvent event) {
-        switchPane(Constants.TEACHERSVIEW);
+        switchPane(adminConstants.TEACHERSVIEW);
+    }
+    
+    @FXML
+    private void openAdmin(ActionEvent event) {
+        switchPane(adminConstants.ADMINSVIEW);
     }
 
     @FXML
     private void openTimetable(ActionEvent event) {
-        switchPane(Constants.TIMETABLEVIEW);
+        switchPane(adminConstants.TIMETABLEVIEW);
     }
 
     @FXML
     private void openClasses(ActionEvent event) {
-        switchPane(Constants.CLASSESVIEW);
+        switchPane(adminConstants.CLASSESVIEW);
     }
 
     @FXML
     private void openFinances(ActionEvent event) {
-        switchPane(Constants.FINANCEVIEW);
+        switchPane(adminConstants.FINANCEVIEW);
     }
 
     @FXML

@@ -6,6 +6,8 @@
 package business.entity;
 
 import java.io.Serializable;
+import java.util.Date;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,11 +15,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -29,12 +35,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Teacher.findAll", query = "SELECT t FROM Teacher t"),
     @NamedQuery(name = "Teacher.findById", query = "SELECT t FROM Teacher t WHERE t.id = :id"),
-    @NamedQuery(name = "Teacher.findByUsername", query = "SELECT t FROM Teacher t WHERE t.username = :username"),
-    @NamedQuery(name = "Teacher.findByPassword", query = "SELECT t FROM Teacher t WHERE t.password = :password"),
-    @NamedQuery(name = "Teacher.findByFirstName", query = "SELECT t FROM Teacher t WHERE t.firstName = :firstName"),
-    @NamedQuery(name = "Teacher.findByLastName", query = "SELECT t FROM Teacher t WHERE t.lastName = :lastName"),
     @NamedQuery(name = "Teacher.findByPhoneNumber", query = "SELECT t FROM Teacher t WHERE t.phoneNumber = :phoneNumber"),
-    @NamedQuery(name = "Teacher.findByEMail", query = "SELECT t FROM Teacher t WHERE t.eMail = :eMail")})
+    @NamedQuery(name = "Teacher.findByEMail", query = "SELECT t FROM Teacher t WHERE t.eMail = :eMail"),
+    @NamedQuery(name = "Teacher.findByDateOfBirth", query = "SELECT t FROM Teacher t WHERE t.dateOfBirth = :dateOfBirth")})
 public class Teacher implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -43,28 +46,21 @@ public class Teacher implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
-    @Basic(optional = false)
-    @Column(name = "username")
-    private String username;
-    @Basic(optional = false)
-    @Column(name = "password")
-    private String password;
-    @Basic(optional = false)
-    @Column(name = "first_name")
-    private String firstName;
-    @Basic(optional = false)
-    @Column(name = "last_name")
-    private String lastName;
     @Column(name = "phone_number")
-    private Integer phoneNumber;
+    private String phoneNumber;
     @Column(name = "e_mail")
     private String eMail;
+    @Column(name = "date_of_birth")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date dateOfBirth;
+    @ManyToMany(mappedBy = "teacherList")
+    private List<Subject> subjectList;
     @JoinColumn(name = "id_finance", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Finance idFinance;
-    @JoinColumn(name = "id_privilege", referencedColumnName = "id")
+    @JoinColumn(name = "id_user", referencedColumnName = "id")
     @ManyToOne(optional = false)
-    private Privilege idPrivilege;
+    private User idUser;
     @JoinColumn(name = "id_street", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Street idStreet;
@@ -76,14 +72,6 @@ public class Teacher implements Serializable {
         this.id = id;
     }
 
-    public Teacher(Integer id, String username, String password, String firstName, String lastName) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
-
     public Integer getId() {
         return id;
     }
@@ -92,43 +80,11 @@ public class Teacher implements Serializable {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public Integer getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(Integer phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -140,6 +96,23 @@ public class Teacher implements Serializable {
         this.eMail = eMail;
     }
 
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    @XmlTransient
+    public List<Subject> getSubjectList() {
+        return subjectList;
+    }
+
+    public void setSubjectList(List<Subject> subjectList) {
+        this.subjectList = subjectList;
+    }
+
     public Finance getIdFinance() {
         return idFinance;
     }
@@ -148,12 +121,12 @@ public class Teacher implements Serializable {
         this.idFinance = idFinance;
     }
 
-    public Privilege getIdPrivilege() {
-        return idPrivilege;
+    public User getIdUser() {
+        return idUser;
     }
 
-    public void setIdPrivilege(Privilege idPrivilege) {
-        this.idPrivilege = idPrivilege;
+    public void setIdUser(User idUser) {
+        this.idUser = idUser;
     }
 
     public Street getIdStreet() {

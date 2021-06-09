@@ -12,6 +12,7 @@ import java.util.List;
  * @author bnc
  */
 public interface Dao<E> {
+    
     E get(Integer id);
     
     List<E> getAll();

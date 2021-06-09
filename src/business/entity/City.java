@@ -47,7 +47,7 @@ public class City implements Serializable {
     @Column(name = "city")
     private String city;
     @Basic(optional = false)
-    @Column(name = "ZIP code")
+    @Column(name = "ZIP_code")
     private int zIPcode;
     @JoinColumn(name = "id_country", referencedColumnName = "id")
     @ManyToOne(optional = false)

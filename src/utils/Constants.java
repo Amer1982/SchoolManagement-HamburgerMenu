@@ -9,18 +9,15 @@ package utils;
  *
  * @author bnc
  */
-public class Constants {
+public interface Constants {
 
     public static final String MAIN_TITLE = "School Management System";
     public static final String LOGINVIEW = "/mySchoolProject/LoginView.fxml";
     public static final String MAINVIEW = "/views/mainView.fxml";
     public static final String SIDEMENUVIEW = "/admin/views/sideMenuView.fxml";
-    public static final String TEACHERSVIEW = "/admin/views/teachersView.fxml";
-    public static final String FINANCEVIEW = "/admin/views/financesView.fxml";
-    public static final String HOMEVIEW = "/admin/views/homeView.fxml";
-    public static final String CLASSESVIEW = "/admin/views/classesView.fxml";
-    public static final String STUDENTVIEW = "/admin/views/studentView.fxml";
-    public static final String TIMETABLEVIEW = "/admin/views/timetableView.fxml";
     public static final String STUDENTSIDEMENUVIEW = "/student/views/sideMenuView.fxml";
-    public static String PU_NAME = "School Management System";
+    public static String PU_NAME = "My_School_ProjectPU";//persistence unit name iz persistence.xml
+    public static final String ADMIN = "admin";
+    public static final String TEACHER = "teacher";
+    public static final String STUDENT = "student";
 }
