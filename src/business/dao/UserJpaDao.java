@@ -74,7 +74,7 @@ public class UserJpaDao implements JpaDao<User>{
             User user = (User) query.getSingleResult();
             return user;
         } catch (NoResultException exception) {
-            System.err.format("User with username doesn't exist '%s'%n", username);
+            System.err.format("User with username "+ username+" doesn't exist '%s'%n");
             return null;
         } catch (NonUniqueResultException exception) {
             throw new RuntimeException(exception.getMessage());

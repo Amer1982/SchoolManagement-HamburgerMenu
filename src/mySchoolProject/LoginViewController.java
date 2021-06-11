@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package mySchoolProject;
 
 
@@ -24,8 +20,6 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -59,7 +53,12 @@ public class LoginViewController implements Initializable {
         
     String username = usernameTextField.getText();
     String password = passwordTextField.getText(); //treba hashirati password
-        if (username == null || username.isEmpty() || password == null || password.isEmpty()) {
+    
+    UserJpaDao userJpaDao = new UserJpaDao();
+        User user = userJpaDao.login(username, password);
+        System.out.println("logovani User je "+ user);
+        
+          if (username == null || username.isEmpty() || password == null || password.isEmpty()) {
             loginMessageLabel.setText("Please enter your username and password");
             Alert alert1 = new Alert(Alert.AlertType.ERROR);
             alert1.setTitle("Error");
@@ -67,12 +66,31 @@ public class LoginViewController implements Initializable {
             alert1.setContentText("Please enter your username and password");
             alert1.showAndWait();
             return;
+            
+        } else if (user==null) {
+            loginMessageLabel.setText("Invalid username and/or password! Please try again");
+            Alert alert1 = new Alert(Alert.AlertType.ERROR);
+            alert1.setTitle("Error");
+            alert1.setHeaderText(null);
+            alert1.setContentText("Invalid username and/or password! Please try again");
+            alert1.showAndWait();
+            return;
         }
         
-        UserJpaDao userJpaDao = new UserJpaDao();
+        /*UserJpaDao userJpaDao = new UserJpaDao();
         User user = userJpaDao.login(username, password);
         System.out.println("logovani User je "+ user);
-      
+        
+        if (user==null) {
+            loginMessageLabel.setText("Invalid username and/or password! Please try again");
+            Alert alert1 = new Alert(Alert.AlertType.ERROR);
+            alert1.setTitle("Error");
+            alert1.setHeaderText(null);
+            alert1.setContentText("Invalid username and/or password! Please try again");
+            alert1.showAndWait();
+            return;
+        }*/
+        
         Privilege userPrivilege = user.getIdPrivilege();
         
             //Za studenta
@@ -84,8 +102,7 @@ public class LoginViewController implements Initializable {
         
         //za automatski popunjeno polje dataInfo
         MainStudentViewController studentController = loader.getController();
-        Query query = entityManager.createNamedQuery("User.findByFirstName");
-        studentController.showInformation(query.getResultList().toString()); 
+        studentController.showInformation(user.getFirstName()+" "+user.getLastName()); 
                 //usernameTextField.getText() + " " + passwordTextField.getText());
 
              //Za profesora
@@ -97,7 +114,7 @@ public class LoginViewController implements Initializable {
         
         //za automatski popunjeno polje dataInfo
             MainTeacherViewController teacherController = loader.getController();
-        teacherController.showInformation(usernameTextField.getText() + " " + passwordTextField.getText());
+        teacherController.showInformation(user.getFirstName()+" "+user.getLastName());
 
             //za admina
         } else if(AccessPrivilege.ADMIN.getId()==userPrivilege.getId()){
@@ -107,17 +124,10 @@ public class LoginViewController implements Initializable {
         
         //za automatski popunjeno polje dataInfo
         MainViewController controller = loader.getController();
-        controller.showInformation(username+" "+password);
+        controller.showInformation(user.getFirstName()+" "+user.getLastName());
+         
+        } 
             
-
-        } else {
-            loginMessageLabel.setText("Invalid username and/or password! Please try again");
-            Alert alert1 = new Alert(Alert.AlertType.ERROR);
-            alert1.setTitle("Error");
-            alert1.setHeaderText(null);
-            alert1.setContentText("Invalid username and/or password! Please try again");
-            alert1.showAndWait();
-        }
         usernameTextField.clear();
         passwordTextField.clear();
     }
@@ -125,10 +135,6 @@ public class LoginViewController implements Initializable {
     private void newStage(FXMLLoader loader) throws IOException {
         Parent home = loader.load();
         //Parent parent = FxmlLoader.load(getClass().getClassLoader().getResource("home/professorFxml/Home.fxml"));
-
-        //za automatski popunjeno polje dataInfo
-        /*MainViewController controller = loader.getController();
-        controller.showInformation(usernameTextField.getText() + " " + passwordTextField.getText());*/
 
         //otvara novi scene na istom stageu(za hamburger app mi nije potrebno. Koristim hide())
         //login.getChildren().setAll((home));

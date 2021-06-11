@@ -28,6 +28,20 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Admin.findAll", query = "SELECT a FROM Admin a"),
+   /*@NamedQuery(name = "Admin.loadData", query = "SELECT u.username, u.password, u.firstName, u.lastName, admin.phoneNumber, admin.eMail, \n" +
+"a.street, a.number, c.city, c.zIPcode, cn.country, f.adminSalary FROM User u, Admin admin, Street a, City c, Country cn, Finance f\n" +
+"JOIN Admin admin ON admin.idUser=u.id\n" +
+"JOIN Street a ON a.id=admin.idStreet\n" +
+"JOIN City c ON c.id=a.idCity\n" +
+"JOIN Country cn ON cn.id=c.idCountry\n" +
+"JOIN Finance f ON f.id= admin.idFinance;"),
+    /*"SELECT u.username, u.password, u.firstName, u.lastName, admin.phoneNumber, admin.eMail, \n" +
+"a.street, a.number, c.city, c.zIPcode, cn.country, f.adminSalary FROM User u\n" +
+"JOIN Admin admin ON admin.idUser=u.id\n" +
+"JOIN Street a ON a.id=admin.idStreet\n" +
+"JOIN City c ON c.id=a.idCity\n" +
+"JOIN Country cn ON cn.id=c.idCountry\n" +
+"JOIN Finance f ON f.id= admin.idFinance;"),*/
     @NamedQuery(name = "Admin.findById", query = "SELECT a FROM Admin a WHERE a.id = :id"),
     @NamedQuery(name = "Admin.findByPhoneNumber", query = "SELECT a FROM Admin a WHERE a.phoneNumber = :phoneNumber"),
     @NamedQuery(name = "Admin.findByEMail", query = "SELECT a FROM Admin a WHERE a.eMail = :eMail"),

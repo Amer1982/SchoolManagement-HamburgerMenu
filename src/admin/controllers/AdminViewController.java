@@ -7,10 +7,16 @@ package admin.controllers;
 
 import business.dao.AdminJpaDao;
 import business.entity.Admin;
+import business.entity.City;
+import business.entity.Country;
+import business.entity.Street;
+import business.entity.User;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
+import java.math.BigDecimal;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -49,47 +55,79 @@ public class AdminViewController implements Initializable {
     @FXML
     private JFXTextArea txtfAdditional;
     @FXML
-    private TableView<Admin> adminTable;
-    @FXML
     private JFXButton btnEdit;
     @FXML
     private JFXButton btnDelete;
     @FXML
+    private TableView<Admin> adminTable;
+    @FXML
     private TableColumn<Admin, Integer> col_adminID;
+    @FXML
+    private TableColumn<Admin, String> col_username;
+    @FXML
+    private TableColumn<Admin, String> col_password;
     @FXML
     private TableColumn<Admin, String> col_firstName;
     @FXML
     private TableColumn<Admin, String> col_lastName;
     @FXML
-    private TableColumn<Admin, Integer> col_phone;
+    private TableColumn<Admin, String> col_phone;
     @FXML
     private TableColumn<Admin, String> col_email;
     @FXML
-    private TableColumn<?, String> col_street;
+    private TableColumn<Admin, String> col_street;
     @FXML
-    private TableColumn<?, String> col_city;
+    private TableColumn<Admin, Integer> col_number;
     @FXML
-    private TableColumn<?, String> col_country;
+    private TableColumn<Admin, String> col_city;
     @FXML
-    private TableColumn<Admin, String> col_additionalInfo;
+    private TableColumn<Admin, Integer> col_zip;
+    @FXML
+    private TableColumn<Admin, String> col_country;
+    @FXML
+    private TableColumn<Admin, BigDecimal> col_salary;
+    
     
     private ObservableList<Admin> observableListAdmins = FXCollections.observableArrayList();
+    
+    
     
 
     /**
      * Initializes the controller class.
      * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        displayAdmins();   
         
+    } 
+    
+    private void displayAdmins(){
+        List<Admin> adminList = new AdminJpaDao().getAll();
+        observableListAdmins=FXCollections.observableArrayList(adminList);
+        adminTable.setItems(observableListAdmins);
+        
+        col_adminID.setCellValueFactory(new PropertyValueFactory<>("id"));
+        col_username.setCellValueFactory(new PropertyValueFactory<>("username"));
+        col_password.setCellValueFactory(new PropertyValueFactory<>("password"));
         col_firstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
         col_lastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
         col_phone.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
         col_email.setCellValueFactory(new PropertyValueFactory<>("eMail"));
-        col_additionalInfo.setCellValueFactory(new PropertyValueFactory<>("additionalInfo"));
+        col_street.setCellValueFactory(new PropertyValueFactory<>("street"));
+        col_number.setCellValueFactory(new PropertyValueFactory<>("number"));
+        col_city.setCellValueFactory(new PropertyValueFactory<>("city"));
+        col_zip.setCellValueFactory(new PropertyValueFactory<>("zIPcode"));
+        col_country.setCellValueFactory(new PropertyValueFactory<>("country"));
+        col_salary.setCellValueFactory(new PropertyValueFactory<>("adminSalary"));
         
-    }   
+        adminTable.setItems(observableListAdmins);
+        
+        adminTable.getColumns().addAll(col_adminID, col_username, col_password, col_firstName, col_lastName, 
+                col_phone, col_email, col_street, col_number, col_city, col_zip, col_country, col_salary);
+    }
     
     private void initializeCols(){
         
@@ -106,7 +144,7 @@ public class AdminViewController implements Initializable {
         Admin admin = new Admin();
         //admin.setFirstName(txtFName.getText());
         //admin.setLastName(txtLName.getText());
-        //admin.setPhoneNumber(Integer.parseInt(txtPhone.getText()));
+        admin.setPhoneNumber(txtPhone.getText());
         admin.setEMail(txtEmail.getText());
         //admin.setStreet(txtAddress.getText());
         //admin.setCity(txtCity.getText());
