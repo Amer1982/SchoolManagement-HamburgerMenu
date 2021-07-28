@@ -62,7 +62,7 @@ public class Student implements Serializable {
     @Column(name = "gender")
     private String gender;
     @Column(name = "date_of_birth")
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     private Date dateOfBirth;
     @Column(name = "date_of_entry")
     @Temporal(TemporalType.DATE)

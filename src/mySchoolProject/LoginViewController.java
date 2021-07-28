@@ -24,7 +24,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javax.persistence.EntityManager;
-import javax.persistence.Query;
 import utils.AccessPrivilege;
 import utils.Constants;
 

@@ -5,14 +5,21 @@
  */
 package admin.controllers;
 
+import business.dao.SubjectJpaDao;
+import business.entity.Subject;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 /**
  * FXML Controller class
@@ -32,22 +39,41 @@ public class ClassesViewController implements Initializable {
     @FXML
     private JFXTextField txtSubject;
     @FXML
-    private JFXTextField txtAbbrevation;
-    @FXML
     private JFXComboBox<?> cmbbAssignTeacher;
     @FXML
-    private TableColumn<?, ?> tblAbbrevation;
+    private TableView<Subject> subjectTable;
     @FXML
-    private TableColumn<?, ?> tblSubject;
+    private TableColumn<Subject, String> col_abbrevation;
     @FXML
-    private TableColumn<?, ?> tblAssignedTchr;
+    private TableColumn<Subject, String> col_subject;
+    @FXML
+    private TableColumn<Subject, String> col_assignedTchr;
+    @FXML
+    private JFXTextField txtAbbreviation;
 
     /**
      * Initializes the controller class.
      */
+     private ObservableList<Subject> observableListClasses = FXCollections.observableArrayList();
+    
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+        displaySubjects();   
+        
+    } 
     
+    private void displaySubjects(){
+        List<Subject> subjectList = new SubjectJpaDao().getAll();
+               
+        observableListClasses=FXCollections.observableArrayList(subjectList);
+        
+        subjectTable.setItems(observableListClasses);
+        
+        col_abbrevation.setCellValueFactory(new PropertyValueFactory<>("abbreviation"));
+        col_subject.setCellValueFactory(new PropertyValueFactory<>("subject"));
+        col_assignedTchr.setCellValueFactory(new PropertyValueFactory<>("teacher"));     
+        
+        subjectTable.getColumns().addAll(col_abbrevation, col_subject, col_assignedTchr);
+    }   
 }

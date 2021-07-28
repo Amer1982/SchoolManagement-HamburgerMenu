@@ -40,11 +40,11 @@
             </AnchorPane>
             <AnchorPane layoutX="583.0" layoutY="115.0" prefHeight="485.0" prefWidth="598.0" styleClass="card">
                <children>
-                  <TableView layoutX="14.0" layoutY="14.0" prefHeight="364.0" prefWidth="568.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+                  <TableView fx:id="subjectTable" layoutX="14.0" layoutY="14.0" prefHeight="364.0" prefWidth="568.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
                     <columns>
-                      <TableColumn fx:id="tblAbbrevation" prefWidth="99.0" text="Abbrevation" />
-                      <TableColumn fx:id="tblSubject" prefWidth="242.0" text="Subject" />
-                        <TableColumn fx:id="tblAssignedTchr" prefWidth="224.0" text="Assigned teacher" />
+                      <TableColumn fx:id="col_abbrevation" prefWidth="99.0" text="Abbrevation" />
+                      <TableColumn fx:id="col_subject" prefWidth="242.0" text="Subject" />
+                        <TableColumn fx:id="col_assignedTchr" prefWidth="224.0" text="Assigned teacher" />
                     </columns>
                   </TableView>
                   <Separator layoutX="15.0" layoutY="395.0" prefHeight="0.0" prefWidth="571.0" />

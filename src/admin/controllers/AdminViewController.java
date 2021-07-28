@@ -7,10 +7,6 @@ package admin.controllers;
 
 import business.dao.AdminJpaDao;
 import business.entity.Admin;
-import business.entity.City;
-import business.entity.Country;
-import business.entity.Street;
-import business.entity.User;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
@@ -18,6 +14,8 @@ import java.math.BigDecimal;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -106,27 +104,55 @@ public class AdminViewController implements Initializable {
     
     private void displayAdmins(){
         List<Admin> adminList = new AdminJpaDao().getAll();
+               
         observableListAdmins=FXCollections.observableArrayList(adminList);
+        
         adminTable.setItems(observableListAdmins);
         
         col_adminID.setCellValueFactory(new PropertyValueFactory<>("id"));
-        col_username.setCellValueFactory(new PropertyValueFactory<>("username"));
-        col_password.setCellValueFactory(new PropertyValueFactory<>("password"));
-        col_firstName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
-        col_lastName.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        
+        col_username.setCellValueFactory(cellData -> {
+            return new SimpleStringProperty(cellData.getValue().getIdUser().getUsername());
+        });
+        col_password.setCellValueFactory(cellData -> {
+            return new SimpleStringProperty(cellData.getValue().getIdUser().getPassword());
+        });
+        col_firstName.setCellValueFactory(cellData -> {
+            return new SimpleStringProperty(cellData.getValue().getIdUser().getFirstName());
+        });
+        col_lastName.setCellValueFactory(cellData -> {
+            return new SimpleStringProperty(cellData.getValue().getIdUser().getLastName());
+        });
+        
         col_phone.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
         col_email.setCellValueFactory(new PropertyValueFactory<>("eMail"));
-        col_street.setCellValueFactory(new PropertyValueFactory<>("street"));
-        col_number.setCellValueFactory(new PropertyValueFactory<>("number"));
-        col_city.setCellValueFactory(new PropertyValueFactory<>("city"));
-        col_zip.setCellValueFactory(new PropertyValueFactory<>("zIPcode"));
-        col_country.setCellValueFactory(new PropertyValueFactory<>("country"));
-        col_salary.setCellValueFactory(new PropertyValueFactory<>("adminSalary"));
         
-        adminTable.setItems(observableListAdmins);
+        col_street.setCellValueFactory(cellData -> {
+            return new SimpleStringProperty(cellData.getValue().getIdStreet().getStreet());
+        });
+        col_number.setCellValueFactory(cellData -> {
+            return new SimpleObjectProperty(cellData.getValue().getIdStreet().getNumber());
+        });
+        col_city.setCellValueFactory(cellData -> {
+            return new SimpleStringProperty(cellData.getValue().getIdStreet().getIdCity().getCity());
+        });
+        col_zip.setCellValueFactory(cellData -> {
+            return new SimpleObjectProperty(cellData.getValue().getIdStreet().getIdCity().getZIPcode());
+        });
+        col_country.setCellValueFactory(cellData -> {
+            return new SimpleStringProperty(cellData.getValue().getIdStreet().getIdCity().getIdCountry().getCountry());
+        });
+        col_salary.setCellValueFactory(cellData -> {
+            return new SimpleObjectProperty<>(cellData.getValue().getIdFinance().getAdminSalary());
+        });
+        
         
         adminTable.getColumns().addAll(col_adminID, col_username, col_password, col_firstName, col_lastName, 
                 col_phone, col_email, col_street, col_number, col_city, col_zip, col_country, col_salary);
+    }
+    
+    private String getAddress(int id){
+        return "";
     }
     
     private void initializeCols(){

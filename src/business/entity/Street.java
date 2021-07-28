@@ -56,6 +56,8 @@ public class Street implements Serializable {
     @JoinColumn(name = "id_city", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private City idCity;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idStreet")
+    private List<Admin> adminList;
 
     public Street() {
     }
@@ -118,6 +120,15 @@ public class Street implements Serializable {
 
     public void setIdCity(City idCity) {
         this.idCity = idCity;
+    }
+
+    @XmlTransient
+    public List<Admin> getAdminList() {
+        return adminList;
+    }
+
+    public void setAdminList(List<Admin> adminList) {
+        this.adminList = adminList;
     }
 
     @Override
