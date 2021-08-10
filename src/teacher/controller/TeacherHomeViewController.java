@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package student.controllers;
+package teacher.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,7 +17,7 @@ import javafx.scene.layout.Pane;
  *
  * @author bnc
  */
-public class StudentHomeViewController implements Initializable {
+public class TeacherHomeViewController implements Initializable {
 
     @FXML
     private AnchorPane MessageHolder;

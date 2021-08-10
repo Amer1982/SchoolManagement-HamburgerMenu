@@ -5,14 +5,21 @@
  */
 package student.controllers;
 
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXTextField;
+import business.dao.AdminJpaDao;
+import business.dao.SubjectJpaDao;
+import business.entity.Admin;
+import business.entity.Subject;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 /**
  * FXML Controller class
@@ -21,28 +28,43 @@ import javafx.scene.control.TableColumn;
  */
 public class StudentClassesViewController implements Initializable {
     @FXML
-    private TableColumn<?, ?> tblSubject;
+    private TableView<Subject> subjectTable;
     @FXML
-    private TableColumn<?, ?> tblSubject1;
+    private TableColumn<Subject, String> col_subject;
     @FXML
-    private TableColumn<?, ?> tblSubject11;
+    private TableColumn<Subject, String> col_asgnTeacher;
     @FXML
-    private TableColumn<?, ?> tblSubject111;
+    private TableColumn<Subject, Integer> col_grade;
     @FXML
-    private TableColumn<?, ?> tblSubject1111;
+    private TableColumn<Subject, Integer> col_1stSemester;
     @FXML
-    private TableColumn<?, ?> tblSubject11111;
+    private TableColumn<Subject, Integer> col_2ndSemester;
     @FXML
-    private TableColumn<?, ?> tblSubject111111;
-    @FXML
-    private TableColumn<?, ?> tblSubject1111111;
-
+    private TableColumn<Subject, String> col_remarks;
+    
+    private ObservableList<Subject> observableListSubject = FXCollections.observableArrayList();
+   
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
-    
+        displaySubjects();
+        
+    }
+        private void displaySubjects(){
+            
+        List<Subject> subjectList = new SubjectJpaDao().getAll();
+               
+        observableListSubject=FXCollections.observableArrayList(subjectList);
+        
+        subjectTable.setItems(observableListSubject);   
+        
+        col_subject.setCellValueFactory(new PropertyValueFactory<>("subject"));
+        
+        col_asgnTeacher.setCellValueFactory(cellData -> {
+            return new SimpleStringProperty(cellData.getValue().getTeacherList().toString());
+        });
+  
+        }
 }

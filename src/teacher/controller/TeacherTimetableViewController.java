@@ -3,28 +3,32 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package student.controllers;
+package teacher.controller;
 
+import student.controllers.*;
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
+import javafx.scene.control.DatePicker;
 
 /**
  * FXML Controller class
  *
  * @author bnc
  */
-public class StudentHomeViewController implements Initializable {
+public class TeacherTimetableViewController implements Initializable {
 
     @FXML
-    private AnchorPane MessageHolder;
+    private JFXComboBox<?> cmbbSelectClass;
     @FXML
-    private Pane pnDailyCalendar;
+    private DatePicker btnDate;
     @FXML
-    private Pane pnWeeklyCalendar;
+    private DatePicker btnTime;
+    @FXML
+    private JFXButton btnScheduleClass;
 
     /**
      * Initializes the controller class.

@@ -16,6 +16,7 @@ public interface Constants {
     public static final String MAINVIEW = "/views/mainView.fxml";
     public static final String SIDEMENUVIEW = "/admin/views/sideMenuView.fxml";
     public static final String STUDENTSIDEMENUVIEW = "/student/views/sideMenuView.fxml";
+    public static final String TEACHERSIDEMENUVIEW = "/teacher/views/sideMenuView.fxml";
     public static String PU_NAME = "My_School_ProjectPU";//persistence unit name iz persistence.xml
     public static final String ADMIN = "admin";
     public static final String TEACHER = "teacher";

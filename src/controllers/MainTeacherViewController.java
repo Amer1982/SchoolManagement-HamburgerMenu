@@ -49,7 +49,7 @@ public class MainTeacherViewController implements Initializable {
     private void initDrawer() {
 
         try {
-            VBox menu = FXMLLoader.load(getClass().getResource(Constants.SIDEMENUVIEW));
+            VBox menu = FXMLLoader.load(getClass().getResource(Constants.TEACHERSIDEMENUVIEW));
             drawer.setSidePane(menu);//set the node
 
         } catch (IOException ex) {

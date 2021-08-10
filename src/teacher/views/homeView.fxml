@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane stylesheets="@../../css/fullpackstyling.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="teacher.controller.TeacherHomeViewController">
+   <children>
+      <AnchorPane id="AnchorPane" prefHeight="620.0" prefWidth="1220.0">
+         <children>
+            <AnchorPane fx:id="MessageHolder" layoutX="68.0" layoutY="70.0" prefHeight="223.0" prefWidth="1190.0" styleClass="card" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
+               <children>
+                  <Pane layoutX="407.0" layoutY="-53.0" prefHeight="77.0" prefWidth="380.0" AnchorPane.leftAnchor="405.0" AnchorPane.rightAnchor="405.0">
+                     <styleClass>
+                        <String fx:value="linear_gradient_red" />
+                        <String fx:value="card" />
+                     </styleClass>
+                     <children>
+                        <Label layoutX="131.0" layoutY="20.0" text="Messages" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="27.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Label layoutX="257.0" layoutY="17.0" text="From Teachers" />
+                  <Label layoutX="13.0" layoutY="34.0" prefHeight="173.0" prefWidth="580.0" styleClass="patient-label" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="10.0" />
+                  <Label layoutX="601.0" layoutY="35.0" prefHeight="173.0" prefWidth="580.0" styleClass="patient-label" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="10.0" />
+                  <Label layoutX="859.0" layoutY="11.0" text="From Admins" />
+               </children></AnchorPane>
+            <Pane fx:id="pnDailyCalendar" layoutX="13.0" layoutY="306.0" prefHeight="304.0" prefWidth="589.0" styleClass="card" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="15.0" />
+            <Pane fx:id="pnWeeklyCalendar" layoutX="490.0" layoutY="304.0" prefHeight="304.0" prefWidth="589.0" styleClass="card" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="15.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

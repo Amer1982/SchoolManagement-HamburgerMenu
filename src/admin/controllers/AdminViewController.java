@@ -7,6 +7,8 @@ package admin.controllers;
 
 import business.dao.AdminJpaDao;
 import business.entity.Admin;
+import business.entity.Privilege;
+import business.entity.User;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
@@ -24,6 +26,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 /**
  * FXML Controller class
@@ -46,6 +49,8 @@ public class AdminViewController implements Initializable {
     private JFXTextField txtFName;
     @FXML
     private JFXTextField txtCity;
+    @FXML
+    private JFXTextField txtNumber;
     @FXML
     private JFXTextField txtEmail;
     @FXML
@@ -87,6 +92,8 @@ public class AdminViewController implements Initializable {
     
     
     private ObservableList<Admin> observableListAdmins = FXCollections.observableArrayList();
+    private ObservableList<User> observableListUsers = FXCollections.observableArrayList();
+    
     
     
     
@@ -99,6 +106,8 @@ public class AdminViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         displayAdmins();   
+        
+        btnSave.setOnAction(this::SaveHandleAction);
         
     } 
     
@@ -167,16 +176,32 @@ public class AdminViewController implements Initializable {
 
     @FXML
     private void SaveHandleAction(ActionEvent event) {
+        
+         
         Admin admin = new Admin();
-        //admin.setFirstName(txtFName.getText());
-        //admin.setLastName(txtLName.getText());
-        admin.setPhoneNumber(txtPhone.getText());
-        admin.setEMail(txtEmail.getText());
-        //admin.setStreet(txtAddress.getText());
-        //admin.setCity(txtCity.getText());
-        //admin.setCountry(txtCountry.getText());
-        //admin.setAdditionalInfo(txtfAdditional.getText());
-        //observableListAdmins.add(admin);
+        
+        User user = new User();
+        user.setFirstName(String.valueOf(txtFName.getText()));
+        user.setUsername(String.valueOf(txtFName.getText()));
+        user.setLastName(String.valueOf(txtLName.getText()));
+        user.setPassword(String.valueOf(txtLName.getText()));
+        Privilege privilege = new Privilege(3, "admin");
+        user.setIdPrivilege(privilege);
+               
+       /*admin.getIdUser().setFirstName(String.valueOf(txtFName.getText()));
+       admin.getIdUser().setLastName(String.valueOf(txtLName.getText()));
+       admin.getIdUser().setUsername(String.valueOf(txtFName.getText()));
+       admin.getIdUser().setPassword(String.valueOf(txtLName.getText()));
+       admin.setPhoneNumber(String.valueOf(txtPhone.getText()));
+       admin.setEMail(String.valueOf(txtEmail.getText()));
+       admin.getIdStreet().setStreet(String.valueOf(txtAddress.getText()));
+       admin.getIdStreet().setNumber(Integer.valueOf(txtNumber.getText()));
+       admin.getIdStreet().getIdCity().setCity(String.valueOf(txtCity.getText()));
+       admin.getIdStreet().getIdCity().getIdCountry().setCountry(String.valueOf(txtCountry.getText()));
+       Privilege privilege = new Privilege(3, "admin");
+       admin.getIdUser().setIdPrivilege(privilege);*/
+        
+        observableListUsers.add(user);
         clearInputs();
     }
 

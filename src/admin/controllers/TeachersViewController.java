@@ -14,6 +14,7 @@ import java.net.URL;
 import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -77,6 +78,8 @@ public class TeachersViewController implements Initializable {
     @FXML
     private TableColumn<Teacher, String> col_street;
     @FXML
+    private TableColumn<Teacher, Integer> col_number;
+    @FXML
     private TableColumn<Teacher, String> col_city;
     @FXML
     private TableColumn<Teacher, String> col_country;
@@ -86,6 +89,7 @@ public class TeachersViewController implements Initializable {
     private TableColumn<Teacher, String> col_additionalInfo;
     
     private ObservableList<Teacher> observableListClasses = FXCollections.observableArrayList();
+    
 
     /**
      * Initializes the controller class.
@@ -113,6 +117,9 @@ public class TeachersViewController implements Initializable {
         col_DoB.setCellValueFactory(new PropertyValueFactory<>("dateOfBirth"));
         col_street.setCellValueFactory(cellData -> {
             return new SimpleStringProperty(cellData.getValue().getIdStreet().getStreet());
+        });
+        col_number.setCellValueFactory(cellData -> {
+            return new SimpleObjectProperty(cellData.getValue().getIdStreet().getNumber());
         });
         col_city.setCellValueFactory(cellData -> {
             return new SimpleStringProperty(cellData.getValue().getIdStreet().getIdCity().getCity());

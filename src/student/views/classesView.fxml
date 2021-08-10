@@ -14,16 +14,16 @@
          <children>
             <AnchorPane layoutX="19.0" layoutY="19.0" prefHeight="581.0" prefWidth="1183.0" styleClass="card">
                <children>
-                  <TableView layoutX="14.0" layoutY="14.0" prefHeight="553.0" prefWidth="1153.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+                  <TableView fx:id="subjectTable" layoutX="14.0" layoutY="14.0" prefHeight="553.0" prefWidth="1153.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
                     <columns>
-                      <TableColumn fx:id="tblSubject" prefWidth="134.0" text="Subject" />
-                        <TableColumn fx:id="tblSubject1" prefWidth="134.0" text="Subject" />
-                        <TableColumn fx:id="tblSubject11" prefWidth="134.0" text="Subject" />
-                        <TableColumn fx:id="tblSubject111" prefWidth="134.0" text="Subject" />
-                        <TableColumn fx:id="tblSubject1111" prefWidth="134.0" text="Subject" />
-                        <TableColumn fx:id="tblSubject11111" prefWidth="134.0" text="Subject" />
-                        <TableColumn fx:id="tblSubject111111" prefWidth="134.0" text="Subject" />
-                        <TableColumn fx:id="tblSubject1111111" prefWidth="134.0" text="Subject" />
+                      <TableColumn fx:id="col_subject" prefWidth="241.0" text="Subject" />
+                        <TableColumn fx:id="col_asgnTeacher" prefWidth="269.0" text="Assigned teacher" />
+                        <TableColumn fx:id="col_grade" maxWidth="15000.0" prefWidth="10000.0" text="Grade">
+                           <columns>
+                              <TableColumn fx:id="col_1stSemester" prefWidth="240.0" text="1st semester" />
+                              <TableColumn fx:id="col_2ndSemester" prefWidth="240.0" text="2nd semester" />
+                           </columns></TableColumn>
+                        <TableColumn fx:id="col_remarks" prefWidth="162.0" text="Remarks" />
                     </columns>
                   </TableView>
                </children>

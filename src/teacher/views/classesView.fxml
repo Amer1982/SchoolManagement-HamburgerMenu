@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane stylesheets="@../../css/fullpackstyling.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="teacher.controller.TeacherClassesViewController">
+   <children>
+      <AnchorPane id="AnchorPane" prefHeight="620.0" prefWidth="1220.0">
+         <children>
+            <AnchorPane layoutX="19.0" layoutY="19.0" prefHeight="581.0" prefWidth="1183.0" styleClass="card">
+               <children>
+                  <TableView layoutX="14.0" layoutY="14.0" prefHeight="553.0" prefWidth="1153.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+                    <columns>
+                      <TableColumn fx:id="tblSubject" prefWidth="134.0" text="Subject" />
+                        <TableColumn fx:id="tblSubject1" prefWidth="134.0" text="Subject" />
+                        <TableColumn fx:id="tblSubject11" prefWidth="134.0" text="Subject" />
+                        <TableColumn fx:id="tblSubject111" prefWidth="134.0" text="Subject" />
+                        <TableColumn fx:id="tblSubject1111" prefWidth="134.0" text="Subject" />
+                        <TableColumn fx:id="tblSubject11111" prefWidth="134.0" text="Subject" />
+                        <TableColumn fx:id="tblSubject111111" prefWidth="134.0" text="Subject" />
+                        <TableColumn fx:id="tblSubject1111111" prefWidth="134.0" text="Subject" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

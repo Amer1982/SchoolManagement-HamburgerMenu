@@ -1,8 +1,6 @@
 
 package admin.utils;
 
-import utils.Constants;
-
 
 public class adminConstants{
     

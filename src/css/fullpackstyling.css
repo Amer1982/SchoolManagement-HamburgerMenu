@@ -55,7 +55,7 @@
     -fx-border-color: greenyellow;
 }
 
-/*carriersPane*/
+/*buttons*/
 .blue-gradient{
     -fx-background-color: linear-gradient(to top right, #43BDF3, #3352Ac);
 }
@@ -83,69 +83,8 @@
     -fx-border-radius: 20px;
     -fx-background-radius: 20px;
 }
-/*patientPane*/
-.jfx-tab-pane-headers-region{
-    -fx-background-color: transparent;
-}
-    
-.tab-header-background{
-    -fx-background-color: transparent;
-}
-/*doctorsPane*/
-.tab-pane{
-    -fx-tab-min-width:220px;
-    -fx-pref-width: 240px;
-    -fx-pref-hight: 40px;
-}
 
-/*appointment*/
-.patient-label{
-     -fx-background-insets: 0,1;
-     -fx-background-radius: 8px;
-     -fx-border-color:lightgray;
-     -fx-border-radius: 8px;
-     -fx-effect: innershadow(three-pass-box, rgba(0,0,0,0.75),5,0,2,2);
-    -fx-background-color: #fafafa;     
-}
- /*.pane{
--fx-background-color: linear-gradient(to right, grey, blue);
-}
-.button
-{
--fx-background-color : linear-gradient(to right, grey, blue);
--fx-text-fill:#eae5e5;
--fx-font-family: Helvetica;
--fx-font-weight: bold;
--fx-pref-width: 200px;
--fx-min-height: 40px;
--fx-max-height: 80px;
-}
-.button:hover
-{
--fx-background-color : #A1C1F4 ;
-}
-.button:pressed
-{
--fx-background-color : #73A3EF ;
-}
-.menu-button
-{
--fx-background-color : linear-gradient(to right, grey, blue);
--fx-text-fill:#eae5e5;
--fx-font-family: Helvetica;
--fx-font-weight: bold;
--fx-pref-width: 200px;
--fx-min-height: 40px;
--fx-max-height: 80px;
-}
-#mbtnStudents:hover
-{
--fx-background-color : #A1C1F4 ;
-}
-#mbtnStudents:pressed
-{
--fx-background-color : #73A3EF ;
-}*/
+/*tables*/
 
 .table-view .column-header,
 .table-view .column-header-background .filler {
@@ -178,10 +117,8 @@
 .table-view .increment-button ,.table-view .decrement-button {
     -fx-background-color:transparent;
 	-fx-background-radius: 2em;
-
 }
 
-/* The main scrollbar **track** CSS class  */
 .table-view .scroll-bar:horizontal .track,
 .table-view .scroll-bar:vertical .track{
 	-fx-background-color: transparent;
@@ -190,13 +127,11 @@
 	-fx-border-radius:2em;
 }
 
-/* The main scrollbar **thumb** CSS class which we drag every time (movable) */
 .table-view .scroll-bar:horizontal .thumb,
 .table-view .scroll-bar:vertical .thumb {
     -fx-background-color:derive( #2D75E8,90%);
 	-fx-background-insets: 2, 0, 0;
 	-fx-background-radius: 2em;
-
 }
 
 /* chart properties */
