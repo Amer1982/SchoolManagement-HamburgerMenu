@@ -49,7 +49,7 @@
                               </HBox>
                            </children>
                         </Pane>
-                        <Pane layoutX="365.0" layoutY="233.0" prefHeight="465.0" prefWidth="1151.0" styleClass="card" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="150.0" />
+                        <Pane fx:id="calendarPane" layoutX="365.0" layoutY="233.0" prefHeight="465.0" prefWidth="1151.0" styleClass="card" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="150.0" />
                      </children>
                   </AnchorPane>
                </children>
