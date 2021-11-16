@@ -131,7 +131,7 @@ public class City implements Serializable {
 
     @Override
     public String toString() {
-        return "business.entity.City[ id=" + id + " ]";
+        return city;
     }
     
 }

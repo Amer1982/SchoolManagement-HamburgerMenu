@@ -6,14 +6,13 @@
 package utils;
 
 public enum AccessPrivilege {
-    
+
     ADMIN(3, "admin"),
     STUDENT(1, "student"),
     TEACHER(2, "teacher");
 
     private final int id;
     private final String name;
-   // private final Pane layoutPane;
 
     private AccessPrivilege(int id, String name) {
         this.id = id;
@@ -27,17 +26,4 @@ public enum AccessPrivilege {
     public String getName() {
         return name;
     }
-
- 
-
-    /*public static Pane getLayout(Privilege privilege) {
-
-        AccessPrivilege[] accessPrivileges = AccessPrivilege.values();
-        for (AccessPrivilege accessPrivilege : accessPrivileges) {
-            if (accessPrivilege.id == privilege.getId()) {
-                return accessPrivilege.layoutPane;
-            }
-        }
-        return new UserView();
-    }*/
 }

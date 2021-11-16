@@ -50,13 +50,13 @@ public class MainStudentViewController implements Initializable {
 
         try {
             VBox menu = FXMLLoader.load(getClass().getResource(Constants.STUDENTSIDEMENUVIEW));
-            drawer.setSidePane(menu);//set the node
+            drawer.setSidePane(menu);//postavljam node
 
         } catch (IOException ex) {
             Logger.getLogger(MainStudentViewController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        //transition animation of the hamburger icon
+        //tranzicija na hamburger ikonu
         HamburgerBackArrowBasicTransition transition = new HamburgerBackArrowBasicTransition(hamburger);
         //transition.setRate(-1);
         //event handler mouse event

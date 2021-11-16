@@ -83,6 +83,14 @@
     -fx-border-radius: 20px;
     -fx-background-radius: 20px;
 }
+.search-button{
+    -fx-background-color: #616a85;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+}
 
 /*tables*/
 
@@ -111,9 +119,9 @@
         -fx-fill : white ;
 
  }
-/* scroll bar starts here */
+/* scroll bar */
 
-/* The increment and decrement button CSS class of scrollbar */
+
 .table-view .increment-button ,.table-view .decrement-button {
     -fx-background-color:transparent;
 	-fx-background-radius: 2em;

@@ -6,9 +6,12 @@
 package business.entity;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -41,7 +44,8 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Student.findByEMail", query = "SELECT s FROM Student s WHERE s.eMail = :eMail"),
     @NamedQuery(name = "Student.findByGender", query = "SELECT s FROM Student s WHERE s.gender = :gender"),
     @NamedQuery(name = "Student.findByDateOfBirth", query = "SELECT s FROM Student s WHERE s.dateOfBirth = :dateOfBirth"),
-    @NamedQuery(name = "Student.findByDateOfEntry", query = "SELECT s FROM Student s WHERE s.dateOfEntry = :dateOfEntry")})
+    @NamedQuery(name = "Student.findByDateOfEntry", query = "SELECT s FROM Student s WHERE s.dateOfEntry = :dateOfEntry"),
+    @NamedQuery(name = "Student.findByStudentFee", query = "SELECT s FROM Student s WHERE s.studentFee = :studentFee")})
 public class Student implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -67,19 +71,22 @@ public class Student implements Serializable {
     @Column(name = "date_of_entry")
     @Temporal(TemporalType.DATE)
     private Date dateOfEntry;
+    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
+    @Column(name = "student_fee")
+    private BigDecimal studentFee;
+    
     @JoinTable(name = "subject_student", joinColumns = {
         @JoinColumn(name = "student_id", referencedColumnName = "id")}, inverseJoinColumns = {
         @JoinColumn(name = "subject_id", referencedColumnName = "id")})
     @ManyToMany
-    private List<Subject> subjectList;
-    @JoinColumn(name = "id_finance", referencedColumnName = "id")
-    @ManyToOne(optional = false)
-    private Finance idFinance;
+    //private List<Subject> subjectList;
+    private Set<Subject> subjectSet;
+    
     @JoinColumn(name = "id_user", referencedColumnName = "id")
-    @ManyToOne(optional = false)
+    @ManyToOne(cascade = CascadeType.ALL, optional = false)
     private User idUser;
     @JoinColumn(name = "id_street", referencedColumnName = "id")
-    @ManyToOne(optional = false)
+    @ManyToOne(cascade = CascadeType.ALL, optional = false)
     private Street idStreet;
 
     public Student() {
@@ -152,21 +159,36 @@ public class Student implements Serializable {
         this.dateOfEntry = dateOfEntry;
     }
 
-    @XmlTransient
+    public BigDecimal getStudentFee() {
+        return studentFee;
+    }
+
+    public void setStudentFee(BigDecimal studentFee) {
+        this.studentFee = studentFee;
+    }
+
+
+    public String geteMail() {
+        return eMail;
+    }
+
+    public void seteMail(String eMail) {
+        this.eMail = eMail;
+    }
+
+    public Set<Subject> getSubjectSet() {
+        return subjectSet;
+    }
+
+    /*@XmlTransient
     public List<Subject> getSubjectList() {
-        return subjectList;
+    return subjectList;
     }
-
     public void setSubjectList(List<Subject> subjectList) {
-        this.subjectList = subjectList;
-    }
-
-    public Finance getIdFinance() {
-        return idFinance;
-    }
-
-    public void setIdFinance(Finance idFinance) {
-        this.idFinance = idFinance;
+    this.subjectList = subjectList;
+    }*/
+    public void setSubjectSet(Set<Subject> subjectSet) {
+        this.subjectSet = subjectSet;
     }
 
     public User getIdUser() {

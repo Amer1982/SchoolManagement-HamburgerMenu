@@ -105,7 +105,7 @@ public class Country implements Serializable {
 
     @Override
     public String toString() {
-        return "business.entity.Country[ id=" + id + " ]";
+        return country;
     }
     
 }

@@ -49,6 +49,7 @@ public class StudentJpaDao implements JpaDao<Student>{
 
     @Override
     public void delete(Student student) {
-        executeInsideTransaction(em->em.remove(student));
+        
+        executeInsideTransaction(em -> em.remove(em.contains(student)?student:em.merge(student)));
     }   
 }

@@ -32,6 +32,14 @@ public class AdminJpaDao implements JpaDao<Admin>{
     public List<Admin> getAll() {
         Query query = entityManager.createNamedQuery("Admin.findAll");
         return query.getResultList();}
+    
+    public List<Admin> getByID() {
+        Query query = entityManager.createNamedQuery("Admin.findById");
+        return query.getResultList();}
+    
+    public List<Admin> sumOfSalary() {
+        Query query = entityManager.createNamedQuery("Admin.salary");
+        return query.getResultList();}
 
     @Override
     public void save(Admin admin) {
@@ -43,6 +51,7 @@ public class AdminJpaDao implements JpaDao<Admin>{
 
     @Override
     public void delete(Admin admin) {
-        executeInsideTransaction(em->em.remove(admin));}
+        executeInsideTransaction(em -> em.remove(em.contains(admin)?admin:em.merge(admin)));
+    }
     
 }

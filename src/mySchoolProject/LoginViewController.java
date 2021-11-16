@@ -24,6 +24,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javax.persistence.EntityManager;
+import org.apache.commons.codec.digest.DigestUtils;
 import utils.AccessPrivilege;
 import utils.Constants;
 
@@ -51,19 +52,19 @@ public class LoginViewController implements Initializable {
     public void loginActionButton(ActionEvent actionEvent) throws IOException {
         
     String username = usernameTextField.getText();
-    String password = passwordTextField.getText(); //treba hashirati password
+    String password = DigestUtils.md5Hex(passwordTextField.getText()); //treba hashirati password
     
-    UserJpaDao userJpaDao = new UserJpaDao();
+        UserJpaDao userJpaDao = new UserJpaDao();
         User user = userJpaDao.login(username, password);
         System.out.println("logovani User je "+ user);
         
-          if (username == null || username.isEmpty() || password == null || password.isEmpty()) {
+          if (username.isEmpty() || password.isEmpty()) {
             loginMessageLabel.setText("Please enter your username and password");
             Alert alert1 = new Alert(Alert.AlertType.ERROR);
             alert1.setTitle("Error");
             alert1.setHeaderText(null);
             alert1.setContentText("Please enter your username and password");
-            alert1.showAndWait();
+            alert1.show();
             return;
             
         } else if (user==null) {
@@ -72,7 +73,7 @@ public class LoginViewController implements Initializable {
             alert1.setTitle("Error");
             alert1.setHeaderText(null);
             alert1.setContentText("Invalid username and/or password! Please try again");
-            alert1.showAndWait();
+            alert1.show();
             return;
         }
         

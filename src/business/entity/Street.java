@@ -53,11 +53,12 @@ public class Street implements Serializable {
     private List<Teacher> teacherList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idStreet")
     private List<Student> studentList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idStreet")
+    private List<Admin> adminList;
     @JoinColumn(name = "id_city", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private City idCity;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idStreet")
-    private List<Admin> adminList;
+
 
     public Street() {
     }

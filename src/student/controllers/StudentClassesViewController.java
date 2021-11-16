@@ -5,14 +5,13 @@
  */
 package student.controllers;
 
-import business.dao.AdminJpaDao;
 import business.dao.SubjectJpaDao;
-import business.entity.Admin;
 import business.entity.Subject;
+import business.entity.Teacher;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
-import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -55,15 +54,16 @@ public class StudentClassesViewController implements Initializable {
         private void displaySubjects(){
             
         List<Subject> subjectList = new SubjectJpaDao().getAll();
-               
         observableListSubject=FXCollections.observableArrayList(subjectList);
-        
         subjectTable.setItems(observableListSubject);   
-        
         col_subject.setCellValueFactory(new PropertyValueFactory<>("subject"));
         
         col_asgnTeacher.setCellValueFactory(cellData -> {
-            return new SimpleStringProperty(cellData.getValue().getTeacherList().toString());
+            String teachers = new String();
+            for (Teacher teacher : cellData.getValue().getTeacherSet()) {
+                teachers+=teacher.getIdUser().getFirstName()+" "+teacher.getIdUser().getLastName()+", ";
+            }
+            return new SimpleObjectProperty<>(teachers);
         });
   
         }

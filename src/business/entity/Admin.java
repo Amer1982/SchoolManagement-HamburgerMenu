@@ -6,7 +6,9 @@
 package business.entity;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,13 +26,17 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author bnc
  */
 @Entity
-@Table(name = "admin")
-@XmlRootElement
-@NamedQueries({
+        @Table(name = "admin")
+        @XmlRootElement
+        @NamedQueries({
     @NamedQuery(name = "Admin.findAll", query = "SELECT a FROM Admin a"),
     @NamedQuery(name = "Admin.findById", query = "SELECT a FROM Admin a WHERE a.id = :id"),
     @NamedQuery(name = "Admin.findByPhoneNumber", query = "SELECT a FROM Admin a WHERE a.phoneNumber = :phoneNumber"),
-    @NamedQuery(name = "Admin.findByEMail", query = "SELECT a FROM Admin a WHERE a.eMail = :eMail")})
+    @NamedQuery(name = "Admin.findByEMail", query = "SELECT a FROM Admin a WHERE a.eMail = :eMail"),
+    @NamedQuery(name = "Admin.findByAdminSalary", query = "SELECT a FROM Admin a WHERE a.adminSalary = :adminSalary"),
+    @NamedQuery(name = "Admin.findByAdditionalInfo", query = "SELECT a FROM Admin a WHERE a.additionalInfo = :additionalInfo"),
+    @NamedQuery(name = "Admin.salary", query = "SELECT SUM(a.adminSalary) FROM Admin a")})
+
 public class Admin implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -43,14 +49,16 @@ public class Admin implements Serializable {
     private String phoneNumber;
     @Column(name = "e_mail")
     private String eMail;
-    @JoinColumn(name = "id_finance", referencedColumnName = "id")
-    @ManyToOne(optional = false)
-    private Finance idFinance;
+    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
+    @Column(name = "admin_salary")
+    private BigDecimal adminSalary;
+    @Column(name = "additional_info")
+    private String additionalInfo;
     @JoinColumn(name = "id_user", referencedColumnName = "id")
-    @ManyToOne(optional = false)
+    @ManyToOne(cascade = CascadeType.ALL, optional = false)
     private User idUser;
     @JoinColumn(name = "id_street", referencedColumnName = "id")
-    @ManyToOne(optional = false)
+    @ManyToOne(cascade = CascadeType.ALL, optional = false)
     private Street idStreet;
 
     public Admin() {
@@ -84,12 +92,20 @@ public class Admin implements Serializable {
         this.eMail = eMail;
     }
 
-    public Finance getIdFinance() {
-        return idFinance;
+    public BigDecimal getAdminSalary() {
+        return adminSalary;
     }
 
-    public void setIdFinance(Finance idFinance) {
-        this.idFinance = idFinance;
+    public void setAdminSalary(BigDecimal adminSalary) {
+        this.adminSalary = adminSalary;
+    }
+
+    public String getAdditionalInfo() {
+        return additionalInfo;
+    }
+
+    public void setAdditionalInfo(String additionalInfo) {
+        this.additionalInfo = additionalInfo;
     }
 
     public User getIdUser() {
@@ -132,5 +148,5 @@ public class Admin implements Serializable {
     public String toString() {
         return "business.entity.Admin[ id=" + id + " ]";
     }
-    
+
 }

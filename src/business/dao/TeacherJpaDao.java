@@ -43,6 +43,7 @@ public class TeacherJpaDao implements JpaDao<Teacher>{
 
     @Override
     public void delete(Teacher teacher) {
-        executeInsideTransaction(em->em.remove(teacher));}
+        executeInsideTransaction(em -> em.remove(em.contains(teacher)?teacher:em.merge(teacher)));
+    }
     
 }

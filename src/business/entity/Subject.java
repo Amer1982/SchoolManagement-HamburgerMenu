@@ -6,7 +6,9 @@
 package business.entity;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -48,13 +50,16 @@ public class Subject implements Serializable {
     @Basic(optional = false)
     @Column(name = "abbreviation")
     private String abbreviation;
+    
     @JoinTable(name = "subject_teacher", joinColumns = {
         @JoinColumn(name = "subject_id", referencedColumnName = "id")}, inverseJoinColumns = {
         @JoinColumn(name = "teacher_id", referencedColumnName = "id")})
     @ManyToMany
-    private List<Teacher> teacherList;
-    @ManyToMany(mappedBy = "subjectList")
-    private List<Student> studentList;
+    //private List<Teacher> teacherList;
+    private Set<Teacher> teacherSet = new HashSet<Teacher>();
+    @ManyToMany(mappedBy = "subjectSet")
+    //private List<Student> studentList;
+    private  Set<Student> studentSet = new HashSet<Student>();
 
     public Subject() {
     }
@@ -93,12 +98,28 @@ public class Subject implements Serializable {
         this.abbreviation = abbreviation;
     }
 
-    @XmlTransient
-    public List<Teacher> getTeacherList() {
-        return teacherList;
+   // @XmlTransient
+    //public List<Teacher> getTeacherList() {
+      //  return teacherList;
+    //}
+
+    public Set<Teacher> getTeacherSet() {
+        return teacherSet;
     }
 
-    public void setTeacherList(List<Teacher> teacherList) {
+    public void setTeacherSet(Set<Teacher> teacherSet) {
+        this.teacherSet = teacherSet;
+    }
+
+    public Set<Student> getStudentSet() {
+        return studentSet;
+    }
+
+    public void setStudentSet(Set<Student> studentSet) {
+        this.studentSet = studentSet;
+    }
+
+    /*public void setTeacherList(List<Teacher> teacherList) {
         this.teacherList = teacherList;
     }
 
@@ -109,7 +130,7 @@ public class Subject implements Serializable {
 
     public void setStudentList(List<Student> studentList) {
         this.studentList = studentList;
-    }
+    }*/
 
     @Override
     public int hashCode() {

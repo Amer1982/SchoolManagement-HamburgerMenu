@@ -50,25 +50,22 @@ public class MainViewController implements Initializable {
 
         try {
             VBox menu = FXMLLoader.load(getClass().getResource(Constants.SIDEMENUVIEW));
-            drawer.setSidePane(menu);//set the node
-
+            drawer.setSidePane(menu);
         } catch (IOException ex) {
             Logger.getLogger(MainViewController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        //transition animation of the hamburger icon
+       
         HamburgerBackArrowBasicTransition transition = new HamburgerBackArrowBasicTransition(hamburger);
-        //transition.setRate(-1);
-        //event handler mouse event
+        
         hamburger.addEventHandler(MouseEvent.MOUSE_CLICKED, (Event e) -> {
-            //2 slucaj
+            
             transition.setRate(transition.getRate() * -1);
             transition.play();
 
             if (drawer.isOpened()) {
                 drawer.close();
-                //Nisam mogao kliknuti nista ispod overlay za drawer kada je zatvoren pa sam dodao ovaj dio koda koji ga 
-                //šalje iza AncorPane
+                
                 AnchorPane.clearConstraints(drawer);
                 AnchorPane.setLeftAnchor(drawer, -150.0);
                 AnchorPane.setTopAnchor(drawer, 0.0);
@@ -81,20 +78,6 @@ public class MainViewController implements Initializable {
                 AnchorPane.setBottomAnchor(drawer, 0.0);
             }
         });
-        //1 slucaj
-        /*{drawer.toggle();}
-            );
-            
-        drawer.setOnDrawerOpening((event) -> {
-            transition.setRate(transition.getRate() * -1);
-            transition.play();
-            //dodajem sjenu ispod drawer
-            //drawer.setMinWidth(160);
-        });
-        drawer.setOnDrawerClosed((event) -> {
-            transition.setRate(transition.getRate() * -1);
-            transition.play();
-        });    */
     }
     public void showInformation(String usernameTextField) {
         dataInfo.setText(usernameTextField);

@@ -6,9 +6,12 @@
 package business.entity;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -37,7 +40,8 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Teacher.findById", query = "SELECT t FROM Teacher t WHERE t.id = :id"),
     @NamedQuery(name = "Teacher.findByPhoneNumber", query = "SELECT t FROM Teacher t WHERE t.phoneNumber = :phoneNumber"),
     @NamedQuery(name = "Teacher.findByEMail", query = "SELECT t FROM Teacher t WHERE t.eMail = :eMail"),
-    @NamedQuery(name = "Teacher.findByDateOfBirth", query = "SELECT t FROM Teacher t WHERE t.dateOfBirth = :dateOfBirth")})
+    @NamedQuery(name = "Teacher.findByDateOfBirth", query = "SELECT t FROM Teacher t WHERE t.dateOfBirth = :dateOfBirth"),
+    @NamedQuery(name = "Teacher.findByTeacherSalary", query = "SELECT t FROM Teacher t WHERE t.teacherSalary = :teacherSalary")})
 public class Teacher implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -51,20 +55,23 @@ public class Teacher implements Serializable {
     @Column(name = "e_mail")
     private String eMail;
     @Column(name = "date_of_birth")
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     private Date dateOfBirth;
-    @ManyToMany(mappedBy = "teacherList")
-    private List<Subject> subjectList;
-    @JoinColumn(name = "id_finance", referencedColumnName = "id")
-    @ManyToOne(optional = false)
-    private Finance idFinance;
+    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
+    @Column(name = "teacher_salary")
+    private BigDecimal teacherSalary;
+    
+    @ManyToMany(mappedBy = "teacherSet")
+    //private List<Subject> subjectList;
+    private Set<Subject> subjectSet;
+    
     @JoinColumn(name = "id_user", referencedColumnName = "id")
-    @ManyToOne(optional = false)
+    @ManyToOne(cascade = CascadeType.ALL, optional = false)
     private User idUser;
     @JoinColumn(name = "id_street", referencedColumnName = "id")
-    @ManyToOne(optional = false)
+    @ManyToOne(cascade = CascadeType.ALL, optional = false)
     private Street idStreet;
-
+   
     public Teacher() {
     }
 
@@ -104,21 +111,36 @@ public class Teacher implements Serializable {
         this.dateOfBirth = dateOfBirth;
     }
 
-    @XmlTransient
+    public BigDecimal getTeacherSalary() {
+        return teacherSalary;
+    }
+
+    public void setTeacherSalary(BigDecimal teacherSalary) {
+        this.teacherSalary = teacherSalary;
+    }
+
+
+    public String geteMail() {
+        return eMail;
+    }
+
+    public void seteMail(String eMail) {
+        this.eMail = eMail;
+    }
+
+    public Set<Subject> getSubjectSet() {
+        return subjectSet;
+    }
+
+    /*@XmlTransient
     public List<Subject> getSubjectList() {
-        return subjectList;
+    return subjectList;
     }
-
     public void setSubjectList(List<Subject> subjectList) {
-        this.subjectList = subjectList;
-    }
-
-    public Finance getIdFinance() {
-        return idFinance;
-    }
-
-    public void setIdFinance(Finance idFinance) {
-        this.idFinance = idFinance;
+    this.subjectList = subjectList;
+    }*/
+    public void setSubjectSet(Set<Subject> subjectSet) {
+        this.subjectSet = subjectSet;
     }
 
     public User getIdUser() {
@@ -159,7 +181,8 @@ public class Teacher implements Serializable {
 
     @Override
     public String toString() {
-        return "business.entity.Teacher[ id=" + id + " ]";
+
+        return "prof. " + getIdUser().getFirstName() + " " + getIdUser().getLastName();
     }
-    
+
 }

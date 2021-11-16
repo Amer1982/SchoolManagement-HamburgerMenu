@@ -22,6 +22,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import org.apache.commons.codec.digest.DigestUtils;
 
 /**
  *
@@ -38,7 +39,6 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "User.findByUsernameAndPassword", query = "SELECT u FROM User u WHERE u.username = :username AND u.password = :password"),
     @NamedQuery(name = "User.findByFirstName", query = "SELECT u FROM User u WHERE u.firstName = :firstName"),
     @NamedQuery(name = "User.findByLastName", query = "SELECT u FROM User u WHERE u.lastName = :lastName")})
-
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -47,8 +47,10 @@ public class User implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
+    @Basic(optional = false)
     @Column(name = "username")
     private String username;
+    @Basic(optional = false)
     @Column(name = "password")
     private String password;
     @Basic(optional = false)
@@ -74,8 +76,10 @@ public class User implements Serializable {
         this.id = id;
     }
 
-    public User(Integer id, String firstName, String lastName) {
+    public User(Integer id, String username, String password, String firstName, String lastName) {
         this.id = id;
+        this.username = username;
+        this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
     }
@@ -101,7 +105,7 @@ public class User implements Serializable {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password = DigestUtils.md5Hex(password);
     }
 
     public String getFirstName() {

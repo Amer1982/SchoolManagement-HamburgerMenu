@@ -24,6 +24,7 @@ public interface JpaDao<E> extends Dao<E>{
 
     public EntityManager entityManager();
     
+    //defaultna metoda
     default void executeInsideTransaction(Consumer<EntityManager> consumer){
         EntityManager entityManager = entityManager();
         EntityTransaction transaction = entityManager.getTransaction();

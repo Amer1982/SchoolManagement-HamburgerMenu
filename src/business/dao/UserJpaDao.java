@@ -63,6 +63,7 @@ public class UserJpaDao implements JpaDao<User>{
     public void delete(User user) {
         executeInsideTransaction(em -> em.remove(em.contains(user)?user:em.merge(user)));
     }
+    
     public User login(String username, String password) {
         if (username == null || username.isEmpty() || password == null || password.isEmpty()) {
             return null;
